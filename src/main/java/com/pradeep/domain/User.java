@@ -23,7 +23,16 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;	
-	private String email;	
+	
+	private String firstName;
+	private String lastName;
+	private String userStatus;
+	private String username;
+	private String email;
+	private String encryptedEmail;
+	private String password;
+	private String guid;
+	
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	Set<CompanyUserMapping> companyUserMapping;
 }
