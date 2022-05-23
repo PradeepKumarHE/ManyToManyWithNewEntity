@@ -1,5 +1,6 @@
 package com.pradeep.domain;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -26,13 +27,15 @@ public class User {
 	
 	private String firstName;
 	private String lastName;
-	private String userStatus;
-	private String username;
 	private String email;
 	private String encryptedEmail;
+	private String username;
 	private String password;
+	private String userStatus;
 	private String guid;
-	
+	private Boolean isNotlocked;
+	private Date lastLogin;
+	private String profilePic;
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	Set<CompanyUserMapping> companyUserMapping;
 }

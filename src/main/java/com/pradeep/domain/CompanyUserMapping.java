@@ -31,7 +31,11 @@ public class CompanyUserMapping {
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id") 
 	private User user;
-	
+
+	private String role;
+	private String [] authorities;
     private boolean isExternal;
     private boolean isActive;
+	private String companyName;
+	private String companyType;
 }

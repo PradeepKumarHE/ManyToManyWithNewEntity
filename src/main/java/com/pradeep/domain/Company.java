@@ -23,9 +23,15 @@ public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long companyId;
-	
 	private String companyName;
-	
+	private String companyDescription;
+	private String companyWebsite;
+	private String companyEmailDomain;
+	private Integer companyTypeID;
+	private Integer numberOfEmployeesID;
+	private String companyLogo;
+	private Integer companyStatus;
+	private Boolean active;
 	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
 	Set<CompanyUserMapping> companyUserMapping;
 }
