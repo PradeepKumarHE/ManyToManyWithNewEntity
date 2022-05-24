@@ -1,0 +1,40 @@
+{
+  "company": {
+    "companyName": "Virtuele Support Team",
+    "companyDescription": "Steel detailing company",
+    "companyWebsite": "www.virtuele.io",
+    "companyEmailDomain": "virtueleio",
+    "companyTypeID": 1,
+    "numberOfEmployeesID": 1,
+    "companyLogo": "Logo data",
+    "companyStatus": 3,
+    "active": true
+  },
+  "user": {
+    "firstName": "Virtuele",
+    "lastName": "Admin",
+    "email": "superadmin@virtuele.io",
+    "encryptedEmail": "b61dc931fa6e0b5d333df39789cb41b7d8691e4793add97ee161adc31cb70125",
+    "username": "superadminvirtueleio",
+    "password": "$2a$10$zYuDxDR1swDyAWYOtTQCW.YR3dMg0smvkS2Q/knu.ztJlRye07Oie",
+    "userStatus": "ACTIVE",
+    "guid": null,
+    "isNotlocked": true,
+    "lastLogin": null,
+    "profilePic": "Image data"
+  },
+  "role": "ROLE_SUPER_USER",
+  "authorities": [
+    "user:read",
+    "user:create",
+    "user:update",
+    "user:delete",
+    "user:revoke",
+    "user:configure",
+    "user:provision"
+  ],
+  "companyName": null,
+  "companyType": null,
+  "active": true,
+  "external": false
+}
