@@ -8,7 +8,17 @@
     "numberOfEmployeesID": 1,
     "companyLogo": "Logo data",
     "companyStatus": 3,
-    "active": true
+    "active": true,
+    "address": {
+      "street": "Shanthappa",
+      "countryId": 1,
+      "stateID": 1,
+      "cityID": 1,
+      "zipCode": 1234,
+      "phoneCountryID": 1,
+      "phone": 316986,
+      "phoneExtension": 3654
+    }
   },
   "user": {
     "firstName": "Virtuele",
@@ -21,7 +31,20 @@
     "guid": null,
     "isNotlocked": true,
     "lastLogin": null,
-    "profilePic": "Image data"
+    "profilePic": "Image data",
+    "address": {
+      "street": "Shanthappa",
+      "countryId": 1,
+      "stateID": 1,
+      "cityID": 1,
+      "zipCode": 1234,
+      "phoneCountryID": 1,
+      "phone": 316986,
+      "phoneExtension": 3654,
+      "landPhoneCountryID": 1,
+      "landPhone": 316987,
+      "landPhoneExtension": 123
+    }
   },
   "role": "ROLE_SUPER_USER",
   "authorities": [

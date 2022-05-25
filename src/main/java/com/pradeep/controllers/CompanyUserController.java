@@ -1,5 +1,7 @@
 package com.pradeep.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,9 +37,9 @@ public class CompanyUserController {
 	IUserService userService;
 
 	@PostMapping("/company")
-	public ResponseEntity<CompanyUserMapping> createCompany(@RequestBody CompanyUserMapping companyusermapping) {
+	public ResponseEntity<CompanyUserMapping> createCompany(@RequestBody CompanyUserMapping companyusermapping) throws JsonProcessingException {
 		CompanyUserMapping companyUserMapping = companyUserMappingService.createCompany(companyusermapping);
-		return new ResponseEntity<CompanyUserMapping>(companyUserMapping, HttpStatus.CREATED);
+		return new ResponseEntity<CompanyUserMapping>(companyusermapping, HttpStatus.CREATED);
 	}
 
 	@PostMapping("/company/{companyId}")

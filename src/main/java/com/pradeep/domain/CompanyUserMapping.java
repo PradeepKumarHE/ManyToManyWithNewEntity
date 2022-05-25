@@ -19,7 +19,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "companyUserMappingId")
-public class CompanyUserMapping {
+public class 	CompanyUserMapping {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long companyUserMappingId;
