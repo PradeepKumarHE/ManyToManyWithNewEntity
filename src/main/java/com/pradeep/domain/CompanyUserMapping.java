@@ -18,7 +18,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "companyUserMappingId")
 public class 	CompanyUserMapping {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

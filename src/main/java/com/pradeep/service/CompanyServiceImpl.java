@@ -30,9 +30,7 @@ public class CompanyServiceImpl implements ICompanyService {
 		CompanyDto companyDto=new CompanyDto();
 		companyDto.setCompanyId(existingCompany.getCompanyId());
 		companyDto.setCompanyName(existingCompany.getCompanyName());
-		
 		Set<CompanyUserMappingDto> companyUserMappingDtoList=new LinkedHashSet<>();
-		
 		Set<CompanyUserMapping> companyUserMappingList=existingCompany.getCompanyUserMapping();
 		for (CompanyUserMapping cum : companyUserMappingList) {
 			CompanyUserMappingDto companyUserMappingDto=new CompanyUserMappingDto();
