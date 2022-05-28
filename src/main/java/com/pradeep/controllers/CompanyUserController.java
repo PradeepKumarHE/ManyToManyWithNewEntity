@@ -24,6 +24,8 @@ import com.pradeep.service.ICompanyService;
 import com.pradeep.service.ICompanyUserMappingService;
 import com.pradeep.service.IUserService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class CompanyUserController {
@@ -64,9 +66,13 @@ public class CompanyUserController {
 
 	@PutMapping("potential")
 	public ResponseEntity<String> updatePotentialCompany(@RequestBody CompanyUserMapping companyusermapping) throws ResourceNotFoundException {
-		System.out.println(companyusermapping.getCompany().getCompanyName());
+
 		return new ResponseEntity<String>("", HttpStatus.OK);
 	}
 
-
+	@GetMapping("list/potential")
+	public ResponseEntity<List<CompanyUserMapping>> listPotentialCompanies() throws ResourceNotFoundException {
+		List<CompanyUserMapping> list=companyUserMappingService.listPotentialCompanies();
+		return new ResponseEntity<List<CompanyUserMapping>>(list, HttpStatus.OK);
+	}
 }

@@ -23,7 +23,7 @@ public class 	CompanyUserMapping {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long companyUserMappingId;
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "company_id") 
 	private Company company;
 	
@@ -35,6 +35,5 @@ public class 	CompanyUserMapping {
 	private String [] authorities;
     private boolean isExternal;
     private boolean isActive;
-	private String companyName;
-	private String companyType;
+	private Long customerId;
 }

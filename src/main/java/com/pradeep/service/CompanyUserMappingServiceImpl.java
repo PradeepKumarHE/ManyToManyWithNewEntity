@@ -1,5 +1,6 @@
 package com.pradeep.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,13 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 		CompanyUserMapping companyUserMapping=getUpdateCompanyUserMappingObj(existingCompany,user);
 		return companyUserMappingRepository.save(companyUserMapping);
 	}
-	
+
+	@Override
+	public List<CompanyUserMapping> listPotentialCompanies() {
+		List<CompanyUserMapping> list=companyUserMappingRepository.listPotentialCompanies();
+		return list;
+	}
+
 	private CompanyUserMapping getUpdateCompanyUserMappingObj(Company company,User user) {
 		CompanyUserMapping companyUserMapping =new CompanyUserMapping();
 		companyUserMapping.setCompany(company);

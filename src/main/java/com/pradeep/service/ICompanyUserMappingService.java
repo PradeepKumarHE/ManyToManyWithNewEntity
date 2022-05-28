@@ -5,10 +5,13 @@ import com.pradeep.domain.User;
 import com.pradeep.exceptions.ResourceNotFoundException;
 import com.pradeep.exceptions.UserAssociatedToCompanyException;
 
+import java.util.List;
+
 public interface ICompanyUserMappingService {
 
 	public CompanyUserMapping createCompany(CompanyUserMapping companyusermapping);
 
 	public CompanyUserMapping addUserToExistingCompany(Long companyId, User user) throws ResourceNotFoundException, UserAssociatedToCompanyException;
 
+    List<CompanyUserMapping> listPotentialCompanies();
 }
