@@ -1,7 +1,7 @@
 {
   "company": {
-    "companyName": "SANRIA",
-    "companyWebsite": "www.sanriaengineering.com",
+    "companyName": "CompanyOne",
+    "companyWebsite": "www.companyone.com",
     "companyTypeID": 1,
     "numberOfEmployeesID": 1,
     "companyStatus": 1,
@@ -18,9 +18,9 @@
     }
   },
   "user": {
-    "email": "pradeepkumar@sanriaengineering.com",
+    "email": "pradeepkumar@companyone.com",
     "encryptedEmail": "9d35a76372ff0be5abfb74f0bd23e27a92a8a73a051aec504934fc5889211bf7",
-    "username": "pradeepkumarsanriaengineeringcom",
+    "username": "pradeepkumarcompanyonecom",
     "userStatus": "REGISTERED",
     "address": {
       "phoneCountryID": 1,
@@ -30,9 +30,7 @@
   "role": "ROLE_GUEST",
   "authorities": [
     "user:read"
-  ],
-  "companyName": null,
-  "companyType": null,
+  ],  
   "active": true,
   "external": false
 }
