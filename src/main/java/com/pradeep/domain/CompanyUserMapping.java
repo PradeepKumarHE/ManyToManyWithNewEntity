@@ -34,6 +34,6 @@ public class 	CompanyUserMapping {
 	private String role;
 	private String [] authorities;
     private boolean isExternal;
-    private boolean isActive;
+    private boolean isActive=true;
 	private Long customerId;
 }

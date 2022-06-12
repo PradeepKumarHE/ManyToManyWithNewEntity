@@ -1,8 +1,11 @@
 package com.pradeep.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.pradeep.dtos.AddUserRequestDTo;
+import com.pradeep.dtos.CompanyDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +30,9 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 	@Autowired
 	private IUserRepository userRepository;
 
+	@Autowired
+	private CompanyServiceImpl cs;
+
 	@Override
 	public CompanyUserMapping createCompany(CompanyUserMapping companyusermapping) {
 		CompanyUserMapping savedCompanyUserMapping = companyUserMappingRepository.save(companyusermapping);
@@ -34,9 +40,9 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 	}
 
 	@Override
-	public CompanyUserMapping addUserToExistingCompany(Long companyId, User user) throws ResourceNotFoundException, UserAssociatedToCompanyException {
+	public CompanyUserMapping addUserToExistingCompany(Long companyId, AddUserRequestDTo addUserRequestDTo) throws ResourceNotFoundException, UserAssociatedToCompanyException {
 		Company existingCompany = companyRepository.findById(companyId).orElseThrow(() -> new ResourceNotFoundException("Company not found"));
-		Optional<User> optionalUser=userRepository.findByEmail(user.getEmail());
+		Optional<User> optionalUser=userRepository.findByEmail(addUserRequestDTo.getEmail());
 		if(optionalUser.isPresent()) {
 			User existingUser=optionalUser.get();
 			Optional<CompanyUserMapping> optionalCompanyUserMapping=companyUserMappingRepository.findByCompanyAndUser(existingCompany,existingUser);
@@ -44,16 +50,34 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 				throw new UserAssociatedToCompanyException("User exists for this company");
 			}
 			CompanyUserMapping companyUserMapping=getUpdateCompanyUserMappingObj(existingCompany,existingUser);
+			companyUserMapping.setRole(addUserRequestDTo.getRole());
+			companyUserMapping.setAuthorities(addUserRequestDTo.getAuthorities());
+			companyUserMapping.setExternal(addUserRequestDTo.isExternal());
+			companyUserMapping.setCustomerId(addUserRequestDTo.getCustomerId());
 			return companyUserMappingRepository.save(companyUserMapping);
 		}
+		User user=new User();
+		user.setEmail(addUserRequestDTo.getEmail());
+		user.setEncryptedEmail(addUserRequestDTo.getEncryptedEmail());
+		user.setUsername(addUserRequestDTo.getUsername());
+		user.setUserStatus(addUserRequestDTo.getUserStatus());
 		CompanyUserMapping companyUserMapping=getUpdateCompanyUserMappingObj(existingCompany,user);
+		companyUserMapping.setRole(addUserRequestDTo.getRole());
+		companyUserMapping.setAuthorities(addUserRequestDTo.getAuthorities());
+		companyUserMapping.setExternal(addUserRequestDTo.isExternal());
+		companyUserMapping.setCustomerId(addUserRequestDTo.getCustomerId());
 		return companyUserMappingRepository.save(companyUserMapping);
 	}
 
 	@Override
-	public List<CompanyUserMapping> listPotentialCompanies() {
-		List<CompanyUserMapping> list=companyUserMappingRepository.listPotentialCompanies();
-		return list;
+	public List<CompanyDto> listPotentialCompanies() {
+		List<Company> list=companyRepository.findBycompanyStatus(3);
+		List<CompanyDto> list1=new ArrayList<CompanyDto>();
+		for(Company c:list){
+			list1.add(cs.getConsolidatedCompanyData(c));
+
+		}
+		return list1;
 	}
 
 	private CompanyUserMapping getUpdateCompanyUserMappingObj(Company company,User user) {

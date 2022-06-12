@@ -5,8 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.pradeep.domain.Company;
 
+import java.util.List;
+
 
 @Repository
 public interface ICompanyRepository extends JpaRepository <Company, Long>{
 
+    public List<Company> findBycompanyStatus(Integer companyStatus);
 }

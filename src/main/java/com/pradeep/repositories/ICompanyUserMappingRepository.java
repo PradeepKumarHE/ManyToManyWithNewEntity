@@ -17,6 +17,5 @@ public interface ICompanyUserMappingRepository extends JpaRepository <CompanyUse
 
 	Optional<CompanyUserMapping> findByCompanyAndUser(Company company, User user2);
 
-    @Query("select u, c from User u inner join u.companyUserMapping cu inner join cu.company c where c.companyStatus <> 3")
-    List<CompanyUserMapping> listPotentialCompanies();
+
 }

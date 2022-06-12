@@ -2,6 +2,7 @@ package com.pradeep.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pradeep.dtos.AddUserRequestDTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,9 +46,9 @@ public class CompanyUserController {
 		return new ResponseEntity<CompanyUserMapping>(companyusermapping, HttpStatus.CREATED);
 	}
 
-	@PostMapping("/company/{companyId}")
-	public ResponseEntity<CompanyUserMapping> addUserToExistingCompany(@PathVariable("companyId") Long companyId,@RequestBody User user) throws UserAssociatedToCompanyException, ResourceNotFoundException {
-		CompanyUserMapping savedcompanyUserMapping = companyUserMappingService.addUserToExistingCompany(companyId,user);
+		@PostMapping("/company/{companyId}")
+	public ResponseEntity<CompanyUserMapping> addUserToExistingCompany(@PathVariable("companyId") Long companyId,@RequestBody AddUserRequestDTo addUserRequestDTo) throws UserAssociatedToCompanyException, ResourceNotFoundException {
+		CompanyUserMapping savedcompanyUserMapping = companyUserMappingService.addUserToExistingCompany(companyId,addUserRequestDTo);
 		return new ResponseEntity<CompanyUserMapping>(savedcompanyUserMapping, HttpStatus.CREATED);
 	}
 	
@@ -71,8 +72,8 @@ public class CompanyUserController {
 	}
 
 	@GetMapping("list/potential")
-	public ResponseEntity<List<CompanyUserMapping>> listPotentialCompanies() throws ResourceNotFoundException {
-		List<CompanyUserMapping> list=companyUserMappingService.listPotentialCompanies();
-		return new ResponseEntity<List<CompanyUserMapping>>(list, HttpStatus.OK);
+	public ResponseEntity<List<CompanyDto>> listPotentialCompanies() throws ResourceNotFoundException {
+		List<CompanyDto> list=companyUserMappingService.listPotentialCompanies();
+		return new ResponseEntity<List<CompanyDto>>(list, HttpStatus.OK);
 	}
 }

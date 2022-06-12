@@ -34,7 +34,7 @@ public class User {
 	private String password;
 	private String userStatus;
 	private String guid;
-	private Boolean isNotlocked;
+	private Boolean isNotlocked=Boolean.TRUE;
 	private Date lastLogin;
 	private String profilePic;
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
