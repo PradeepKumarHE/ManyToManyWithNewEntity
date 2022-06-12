@@ -9,5 +9,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CompanyUserDto {
 	private Long userId;
+	private String firstName;
+	private String lastName;
 	private String email;
+	private String userStatus;
+	private UserAddressDto address;
 }

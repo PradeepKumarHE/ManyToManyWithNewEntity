@@ -12,5 +12,13 @@ import lombok.Setter;
 public class CompanyDto {
 	private Long companyId;
 	private String companyName;	
-	Set<CompanyUserMappingDto> associatedUsers;
+	private String companyDescription;
+	private String companyWebsite;	
+	private Integer companyTypeID;
+	private Integer numberOfEmployeesID;
+	private String companyLogo;
+	private Integer companyStatus;
+	private Boolean active;
+	private CompanyAddressDto address;
+	private Set<CompanyUserMappingDto> associatedUsers;
 }

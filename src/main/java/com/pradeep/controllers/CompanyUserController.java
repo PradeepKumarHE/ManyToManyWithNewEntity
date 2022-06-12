@@ -1,8 +1,7 @@
 package com.pradeep.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pradeep.dtos.AddUserRequestDTo;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pradeep.domain.Company;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pradeep.domain.CompanyUserMapping;
-import com.pradeep.domain.User;
+import com.pradeep.dtos.AddUserRequestDTo;
 import com.pradeep.dtos.CompanyDto;
 import com.pradeep.dtos.UserDto;
 import com.pradeep.exceptions.ResourceNotFoundException;
@@ -24,8 +23,6 @@ import com.pradeep.exceptions.UserAssociatedToCompanyException;
 import com.pradeep.service.ICompanyService;
 import com.pradeep.service.ICompanyUserMappingService;
 import com.pradeep.service.IUserService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -42,8 +39,8 @@ public class CompanyUserController {
 
 	@PostMapping("/company")
 	public ResponseEntity<CompanyUserMapping> createCompany(@RequestBody CompanyUserMapping companyusermapping) throws JsonProcessingException {
-		CompanyUserMapping companyUserMapping = companyUserMappingService.createCompany(companyusermapping);
-		return new ResponseEntity<CompanyUserMapping>(companyusermapping, HttpStatus.CREATED);
+		CompanyUserMapping savedCompanyUserMapping = companyUserMappingService.createCompany(companyusermapping);
+		return new ResponseEntity<CompanyUserMapping>(savedCompanyUserMapping, HttpStatus.CREATED);
 	}
 
 		@PostMapping("/company/{companyId}")

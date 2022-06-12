@@ -50,6 +50,7 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 				throw new UserAssociatedToCompanyException("User exists for this company");
 			}
 			CompanyUserMapping companyUserMapping=getUpdateCompanyUserMappingObj(existingCompany,existingUser);
+			
 			companyUserMapping.setRole(addUserRequestDTo.getRole());
 			companyUserMapping.setAuthorities(addUserRequestDTo.getAuthorities());
 			companyUserMapping.setExternal(addUserRequestDTo.isExternal());
@@ -57,10 +58,12 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 			return companyUserMappingRepository.save(companyUserMapping);
 		}
 		User user=new User();
+		
 		user.setEmail(addUserRequestDTo.getEmail());
 		user.setEncryptedEmail(addUserRequestDTo.getEncryptedEmail());
 		user.setUsername(addUserRequestDTo.getUsername());
 		user.setUserStatus(addUserRequestDTo.getUserStatus());
+		user.setAddress(addUserRequestDTo.getAddress());
 		CompanyUserMapping companyUserMapping=getUpdateCompanyUserMappingObj(existingCompany,user);
 		companyUserMapping.setRole(addUserRequestDTo.getRole());
 		companyUserMapping.setAuthorities(addUserRequestDTo.getAuthorities());

@@ -25,8 +25,5 @@ public class CompanyAddress {
     private Long zipCode;
     private Integer phoneCountryID;
     private Long phone;
-    private Integer phoneExtension;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private CompanyAddress address;
+    private Integer phoneExtension;   
 }

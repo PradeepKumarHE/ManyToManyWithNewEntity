@@ -12,9 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,6 +34,7 @@ public class Company {
 	private Boolean active;
 	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
 	Set<CompanyUserMapping> companyUserMapping;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	private CompanyAddress address;

@@ -13,6 +13,10 @@ import lombok.ToString;
 @ToString
 public class UserDto {
 	private Long userId;
+	private String firstName;
+	private String lastName;
 	private String email;
+	private String userStatus;
+	private UserAddressDto address;
 	Set<UserCompanyMappingDto> associatedCompanies;
 }

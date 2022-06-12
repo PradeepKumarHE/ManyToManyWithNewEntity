@@ -1,5 +1,7 @@
 package com.pradeep.dtos;
 
+import com.pradeep.domain.UserAddress;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,4 +16,5 @@ public class AddUserRequestDTo {
     private String [] authorities;
     private boolean isExternal;
     private Long customerId;
+    private UserAddress address;
 }
