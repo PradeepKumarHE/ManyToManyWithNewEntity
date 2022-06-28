@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,52 +41,33 @@ public class UserServiceImpl implements IUserService {
 	
 	private UserDto getConslidatedUserData(User existingUser) {
 		Set<UserCompanyMappingDto> associatedCompanies=new HashSet<>();
-		UserDto userDto=new UserDto();
 		
-		userDto.setUserId(existingUser.getUserId());
-		userDto.setFirstName(existingUser.getFirstName());
-		userDto.setLastName(existingUser.getLastName());		
-		userDto.setEmail(existingUser.getEmail());
-		userDto.setUserStatus(existingUser.getUserStatus());
+		UserDto userDto=new UserDto();
+		BeanUtils.copyProperties(existingUser, userDto);
 		
 		UserAddressDto uaddress=new UserAddressDto();
-		uaddress.setAddressId(existingUser.getAddress().getAddressId());			
-		uaddress.setStreet(existingUser.getAddress().getStreet());
-		uaddress.setCountryId(existingUser.getAddress().getCountryId());
-		uaddress.setStateID(existingUser.getAddress().getStateID());
-		uaddress.setCityID(existingUser.getAddress().getCityID());
-		uaddress.setZipCode(existingUser.getAddress().getZipCode());
-		uaddress.setPhoneCountryID(existingUser.getAddress().getPhoneCountryID());
-		uaddress.setPhone(existingUser.getAddress().getPhone());
-		uaddress.setLandPhoneCountryID(existingUser.getAddress().getLandPhoneCountryID());
-		uaddress.setLandPhone(existingUser.getAddress().getLandPhone());
-		uaddress.setLandPhoneExtension(existingUser.getAddress().getLandPhoneExtension());
+		BeanUtils.copyProperties(existingUser.getAddress(), uaddress);
+		
 		userDto.setAddress(uaddress);
 		
 		Set<CompanyUserMapping> companyUserMapping=existingUser.getCompanyUserMapping();
-		for (CompanyUserMapping companyUserMapping2 : companyUserMapping) {
+		
+		for (CompanyUserMapping eachCompanyUserMapping : companyUserMapping) {
+			
 			UserCompanyMappingDto userCompanyMappingDto=new UserCompanyMappingDto();
-			userCompanyMappingDto.setCompanyUserMappingId(companyUserMapping2.getCompanyUserMappingId());
 			
 			UserCompanyDto userCompanyDto=new UserCompanyDto();		
+			BeanUtils.copyProperties(eachCompanyUserMapping.getCompany(), userCompanyDto);
 			
-			userCompanyDto.setCompanyId(companyUserMapping2.getCompany().getCompanyId());
-			userCompanyDto.setCompanyName(companyUserMapping2.getCompany().getCompanyName());
 			
 			CompanyAddressDto address=new CompanyAddressDto();
-			
-			address.setAddressId(companyUserMapping2.getCompany().getAddress().getAddressId());
-			address.setStreet(companyUserMapping2.getCompany().getAddress().getStreet());
-			address.setCountryId(companyUserMapping2.getCompany().getAddress().getCountryId());
-			address.setStateID(companyUserMapping2.getCompany().getAddress().getStateID());
-			address.setCityID(companyUserMapping2.getCompany().getAddress().getCityID());
-			address.setZipCode(companyUserMapping2.getCompany().getAddress().getZipCode());
-			address.setPhoneCountryID(companyUserMapping2.getCompany().getAddress().getPhoneCountryID());
-			address.setPhone(companyUserMapping2.getCompany().getAddress().getPhone());
-			address.setPhoneExtension(companyUserMapping2.getCompany().getAddress().getPhoneExtension());	
+			BeanUtils.copyProperties(eachCompanyUserMapping.getCompany().getAddress(), address);
 			
 			userCompanyDto.setAddress(address);
 			userCompanyMappingDto.setCompany(userCompanyDto);
+			
+			BeanUtils.copyProperties(eachCompanyUserMapping, userCompanyMappingDto);
+			
 			associatedCompanies.add(userCompanyMappingDto);
 		}
 		userDto.setAssociatedCompanies(associatedCompanies);

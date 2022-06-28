@@ -32,6 +32,7 @@ public class Company {
 	private String companyLogo;
 	private Integer companyStatus;
 	private Boolean active;
+	
 	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
 	Set<CompanyUserMapping> companyUserMapping;
 	

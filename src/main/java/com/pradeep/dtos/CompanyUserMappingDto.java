@@ -14,4 +14,6 @@ public class CompanyUserMappingDto {
 	private CompanyUserDto user;
 	private boolean isExternal;
     private boolean isActive;
+    private String role;
+	private String [] authorities;
 }
