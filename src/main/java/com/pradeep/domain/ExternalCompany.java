@@ -1,15 +1,12 @@
 package com.pradeep.domain;
 
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.Getter;
@@ -18,28 +15,24 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-
-public class Company {
+public class ExternalCompany {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long companyId;
+	private Long externalCompanyId;
 	private String companyName;
 	private String companyDescription;
 	private String companyWebsite;
 	private String companyEmailDomain;
 	private Integer companyTypeID;
 	private Integer numberOfEmployeesID;
-	private String companyLogo;
-	private Integer companyStatus;
+	private String companyLogo;	
 	private Boolean active;
 	
-	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
-	Set<CompanyUserMapping> companyUserMapping;
-	
-	@OneToMany(mappedBy = "parentCompany",fetch = FetchType.EAGER)
-	Set<ExternalCompany> externalCompanies;
+	@ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "company_id") 
+	private Company parentCompany;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
-	private CompanyAddress address;
+	private ExternalCompanyAddress address;
 }

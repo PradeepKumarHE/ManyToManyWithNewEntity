@@ -32,5 +32,17 @@ public class 	CompanyUserMapping {
 	private String [] authorities;
     private boolean isExternal;
     private boolean isActive=true;
-	private Long customerId;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "worklocation_id") 
+	private CompanyAddress worklocaction;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "external_company_id") 
+	private ExternalCompany externalCompany;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "external_company_address_id") 
+	private ExternalCompanyAddress externalCompanyAddress;
+	
 }

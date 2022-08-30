@@ -54,7 +54,7 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 			companyUserMapping.setRole(addUserRequestDTo.getRole());
 			companyUserMapping.setAuthorities(addUserRequestDTo.getAuthorities());
 			companyUserMapping.setExternal(addUserRequestDTo.isExternal());
-			companyUserMapping.setCustomerId(addUserRequestDTo.getCustomerId());
+			//companyUserMapping.setCustomerId(addUserRequestDTo.getCustomerId());
 			return companyUserMappingRepository.save(companyUserMapping);
 		}
 		User user=new User();
@@ -68,7 +68,7 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 		companyUserMapping.setRole(addUserRequestDTo.getRole());
 		companyUserMapping.setAuthorities(addUserRequestDTo.getAuthorities());
 		companyUserMapping.setExternal(addUserRequestDTo.isExternal());
-		companyUserMapping.setCustomerId(addUserRequestDTo.getCustomerId());
+		//companyUserMapping.setCustomerId(addUserRequestDTo.getCustomerId());
 		return companyUserMappingRepository.save(companyUserMapping);
 	}
 
