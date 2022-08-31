@@ -28,6 +28,7 @@ public class 	CompanyUserMapping {
     @JoinColumn(name = "user_id") 
 	private User user;
 
+	private String designation;
 	private String role;
 	private String [] authorities;
     private boolean isExternal;

@@ -17,12 +17,12 @@ public class UserAddress {
     private Long addressId;
     private String street;
     private Integer countryId;
-    private Integer stateID;
-    private Integer cityID;
+    private Integer stateId;
+    private Integer cityId;
     private Long zipCode;
-    private Integer phoneCountryID;
+    private Integer phoneCountryId;
     private Long phone;
-    private Integer landPhoneCountryID;
+    private Integer landPhoneCountryId;
     private Long landPhone;
     private Integer landPhoneExtension;
 }

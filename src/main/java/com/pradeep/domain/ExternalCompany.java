@@ -22,14 +22,13 @@ public class ExternalCompany {
 	private String companyName;
 	private String companyDescription;
 	private String companyWebsite;
-	private String companyEmailDomain;
 	private Integer companyTypeID;
 	private Integer numberOfEmployeesID;
 	private String companyLogo;	
 	private Boolean active;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "company_id") 
+    @JoinColumn(name = "parent_company_id") 
 	private Company parentCompany;
 	
 	@OneToOne(cascade = CascadeType.ALL)
