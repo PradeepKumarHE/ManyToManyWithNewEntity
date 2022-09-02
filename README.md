@@ -41,7 +41,7 @@
 }
 
 3. <strong>add user as employee</strong><br />
-<strong>Sample request</strong><br />
+    Sample request :<br />
         {
           "company": {
             "companyId": 1
@@ -56,8 +56,8 @@
           }
         }
 
-4. <strong>add user  as consultant </strong><br />   
-    <strong>Sample request</strong><br />
+4. <strong>Add user  as consultant </strong><br />   
+    Sample request : <br />
       {
         "company": {
           "companyId": 1
@@ -70,8 +70,8 @@
         "externalCompany": {"externalCompanyId":1},
         "externalCompanyAddress": {"externalCompanyAddressId":1}
       }
-5.  <strong>get user by userid</strong><br />
-    <strong>Respose should be like below</strong><br />
+5.  <strong>Get user by userid</strong><br />
+    Respose should be like below : <br />
     {
       "firstName":""
       "address":{}
