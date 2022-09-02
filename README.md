@@ -1,7 +1,7 @@
 # ManyToManyWithNewEntity
 
-1. <strong>Add company with associated user</strong> (owner)<br />
-    http://localhost:8080/api/company
+1. <strong>Add company with associated user (owner)</strong> <br />
+    http://localhost:8080/api/company <br />
     Request 
     {
     "company": {
@@ -30,15 +30,16 @@
         }
     }
 }
+<br /><br />
 
-2. Get companies and associated user where company status is 0
+2. <strong>Get companies and associated user where company status is 0</strong><br />
 {
   "companyName":""
   "address":{}
   "assocoaiatedusers":[{}]
 }
 
-3. add user as employee
+3. <strong>add user as employee</strong><br />
         {
           "company": {
             "companyId": 1
@@ -53,7 +54,7 @@
           }
         }
 
-4. add user  as consultant
+4. <strong>add user  as consultant</strong><br />
       {
         "company": {
           "companyId": 1
@@ -66,7 +67,7 @@
         "externalCompany": {"externalCompanyId":1},
         "externalCompanyAddress": {"externalCompanyAddressId":1}
       }
-5 get user by userid
+5 <strong>get user by userid</strong><br />
 
 {
   "firstName":""
