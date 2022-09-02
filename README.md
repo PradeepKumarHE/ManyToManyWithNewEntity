@@ -57,7 +57,7 @@
         }
 
 4. <strong>Add user  as consultant </strong>
-    Sample request : <br />
+    <br />Sample request : <br />
       {
         "company": {
           "companyId": 1
