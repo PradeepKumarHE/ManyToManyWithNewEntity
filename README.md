@@ -33,7 +33,7 @@
 <br /><br />
 
 2. <strong>Get companies and associated user where company status is 0</strong><br />
-<strong>Respose should be like below</strong><br />
+    Respose should be like below<br />
 {
   "companyName":""
   "address":{}
@@ -56,7 +56,7 @@
           }
         }
 
-4. <strong>Add user  as consultant </strong><br />   
+4. <strong>Add user  as consultant </strong>
     Sample request : <br />
       {
         "company": {
