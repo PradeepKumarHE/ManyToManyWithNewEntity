@@ -33,6 +33,7 @@
 <br /><br />
 
 2. <strong>Get companies and associated user where company status is 0</strong><br />
+<strong>Respose should be like below</strong><br />
 {
   "companyName":""
   "address":{}
@@ -40,6 +41,7 @@
 }
 
 3. <strong>add user as employee</strong><br />
+<strong>Sample request</strong><br />
         {
           "company": {
             "companyId": 1
@@ -55,6 +57,7 @@
         }
 
 4. <strong>add user  as consultant</strong><br />
+    <strong>Sample request</strong><br />
       {
         "company": {
           "companyId": 1
@@ -67,8 +70,10 @@
         "externalCompany": {"externalCompanyId":1},
         "externalCompanyAddress": {"externalCompanyAddressId":1}
       }
+      <br /><br />
+      
 5 <strong>get user by userid</strong><br />
-
+<strong>Respose should be like below</strong><br />
 {
   "firstName":""
   "address":{}
