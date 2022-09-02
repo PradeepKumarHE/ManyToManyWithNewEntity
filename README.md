@@ -34,11 +34,11 @@
 
 2. <strong>Get companies and associated user where company status is 0</strong><br />
     Respose should be like below<br />
-{
-  "companyName":""
-  "address":{}
-  "assocoaiatedusers":[{}]
-}
+    {
+      "companyName":""
+      "address":{}
+      "assocoaiatedusers":[{}]
+    }
 
 3. <strong>add user as employee</strong><br />
     Sample request :<br />
@@ -71,13 +71,21 @@
         "externalCompanyAddress": {"externalCompanyAddressId":1}
       }
       
-5.  <strong>Get user by userid</strong><br />
+5.  <strong>Get user by userId</strong><br />
     Respose should be like below : <br />
     {
       "firstName":""
       "address":{}
       "assocoaiatedcompanies":[{}]
     }
+6.  <strong>Get Company by companyId</strong><br />
+    Respose should be like below : <br />
+    {
+      "companyName":""
+      "address":{}
+      "assocoaiatedusers":[{}]
+    }
+   
 
       
       
