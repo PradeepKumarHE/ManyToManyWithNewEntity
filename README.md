@@ -1,6 +1,6 @@
 # ManyToManyWithNewEntity
 
-1. Add company with associated user (owner)<br />
+1. <strong>Add company with associated user</strong> (owner)<br />
     http://localhost:8080/api/company
     Request 
     {
