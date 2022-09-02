@@ -56,7 +56,7 @@
           }
         }
 
-4. <strong>add user  as consultant</strong><br />
+4. <strong>add user  as consultant </strong><br />   
     <strong>Sample request</strong><br />
       {
         "company": {
@@ -70,12 +70,14 @@
         "externalCompany": {"externalCompanyId":1},
         "externalCompanyAddress": {"externalCompanyAddressId":1}
       }
-      <br /><br />
+5.  <strong>get user by userid</strong><br />
+    <strong>Respose should be like below</strong><br />
+    {
+      "firstName":""
+      "address":{}
+      "assocoaiatedcompanies":[{}]
+    }
+
       
-5 <strong>get user by userid</strong><br />
-<strong>Respose should be like below</strong><br />
-{
-  "firstName":""
-  "address":{}
-  "assocoaiatedcompanies":[{}]
-}
+      
+      
