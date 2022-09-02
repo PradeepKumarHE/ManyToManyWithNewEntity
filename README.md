@@ -70,6 +70,7 @@
         "externalCompany": {"externalCompanyId":1},
         "externalCompanyAddress": {"externalCompanyAddressId":1}
       }
+      
 5.  <strong>Get user by userid</strong><br />
     Respose should be like below : <br />
     {
