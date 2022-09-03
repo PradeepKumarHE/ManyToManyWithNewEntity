@@ -15,7 +15,8 @@ import com.pradeep.domain.User;
 @Repository
 public interface ICompanyUserMappingRepository extends JpaRepository <CompanyUserMapping, Long>{
 
-	Optional<CompanyUserMapping> findByCompanyAndUser(Company company, User user2);
+	Optional<CompanyUserMapping> findByCompanyAndUser(Company company, User user);
 
-
+	@Query("SELECT cum,c FROM CompanyUserMapping cum JOIN cum.company c JOIN cum.user u WHERE cum.company.companyStatus=0")
+	List<CompanyUserMapping> getCompanyListByCompanyStatus();
 }

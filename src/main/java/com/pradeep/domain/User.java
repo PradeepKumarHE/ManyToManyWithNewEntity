@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,6 +37,7 @@ public class User {
 	private Date lastLogin;
 	private String profilePic;
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	@JsonManagedReference(value = "user")
 	Set<CompanyUserMapping> companyUserMapping;
 	
 	@OneToOne(cascade = CascadeType.ALL)

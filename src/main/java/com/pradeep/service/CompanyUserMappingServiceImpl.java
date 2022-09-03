@@ -1,5 +1,7 @@
 package com.pradeep.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,12 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 		User saveduser=userRepository.save(getUpdatedUserInfo(companyusermapping.getUser()));		
 		return companyUserMappingRepository.save(getUpdatedCompanyUserMapping(savedCompany,saveduser,companyusermapping));
 	}
+	
+	@Override
+	public List<CompanyUserMapping> getCompanyList(Integer companystatus) {
+		List<CompanyUserMapping> cs=companyUserMappingRepository.getCompanyListByCompanyStatus();
+		return cs;
+	}
 
 	private CompanyUserMapping getUpdatedCompanyUserMapping(Company savedCompany, User saveduser,CompanyUserMapping companyusermapping) {
 		companyusermapping.setCompany(savedCompany);
@@ -58,6 +66,8 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 		company.setCompanyEmailDomain(ConversionUtil.getEmailDomain(user.getEmail()));
 		return company;
 	}
+
+	
 	
 
 	

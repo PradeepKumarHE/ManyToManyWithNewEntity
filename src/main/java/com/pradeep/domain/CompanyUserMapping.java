@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,10 +24,12 @@ public class 	CompanyUserMapping {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "company_id") 
+	@JsonBackReference(value = "company")
 	private Company company;
 	
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id") 
+	 @JsonBackReference(value = "user")
 	private User user;
 
 	private String designation;
@@ -46,4 +50,5 @@ public class 	CompanyUserMapping {
     @JoinColumn(name = "external_company_address_id") 
 	private ExternalCompanyAddress externalCompanyAddress;
 	
+    
 }

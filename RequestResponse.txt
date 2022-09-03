@@ -106,3 +106,18 @@ Response :
     "active": true,
     "external": false
 }
+
+
+2 endpoint response should be
+{
+  "companyName":""
+  "address":{}
+  "assocoaiatedusers":[{}]
+}
+
+3
+{
+  "firstName":""
+  "address":{}
+  "assocoaiatedcompanies":[{}]
+}

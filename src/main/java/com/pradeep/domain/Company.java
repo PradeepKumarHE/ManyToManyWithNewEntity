@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,6 +36,7 @@ public class Company {
 	private Boolean active;
 	
 	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
+	@JsonManagedReference(value = "company")
 	Set<CompanyUserMapping> companyUserMapping;
 	
 	@OneToMany(mappedBy = "parentCompany",fetch = FetchType.EAGER)
