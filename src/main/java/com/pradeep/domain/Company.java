@@ -20,7 +20,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-
 public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,5 +43,5 @@ public class Company {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
-	private CompanyAddress address;
+	private CompanyAddress companyaddress;
 }

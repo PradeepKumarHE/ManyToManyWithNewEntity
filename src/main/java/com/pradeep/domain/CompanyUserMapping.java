@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class 	CompanyUserMapping {
+public class CompanyUserMapping {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long companyUserMappingId;

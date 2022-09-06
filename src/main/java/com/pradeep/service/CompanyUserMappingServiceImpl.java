@@ -1,13 +1,16 @@
 package com.pradeep.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pradeep.domain.Company;
 import com.pradeep.domain.CompanyUserMapping;
 import com.pradeep.domain.User;
+import com.pradeep.dtos.CompanyUserMappingDto;
 import com.pradeep.repositories.ICompanyRepository;
 import com.pradeep.repositories.ICompanyUserMappingRepository;
 import com.pradeep.repositories.IUserRepository;
@@ -28,6 +31,9 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 
 	@Autowired
 	private CompanyServiceImpl cs;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 
 	@Override
 	public CompanyUserMapping createCompany(CompanyUserMapping companyusermapping) {
@@ -37,19 +43,19 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 	}
 	
 	@Override
-	public List<CompanyUserMapping> getCompanyList(Integer companystatus) {
-		List<CompanyUserMapping> cs=companyUserMappingRepository.getCompanyListByCompanyStatus();
-		return cs;
+	public List<CompanyUserMappingDto> getCompanyList(Integer companystatus) {
+		List<CompanyUserMapping> companyUserMappingEntities=companyUserMappingRepository.getCompanyListByCompanyStatus();		
+		return companyUserMappingEntities.stream().map(post -> modelMapper.map(post, CompanyUserMappingDto.class))
+				.collect(Collectors.toList());
 	}
 
 	private CompanyUserMapping getUpdatedCompanyUserMapping(Company savedCompany, User saveduser,CompanyUserMapping companyusermapping) {
 		companyusermapping.setCompany(savedCompany);
 		companyusermapping.setUser(saveduser);
-		companyusermapping.setDesignation("Owner");
 		companyusermapping.setRole("ROLE_ADMIN");
 		String [] authorities= {"create","read"};
 		companyusermapping.setAuthorities(authorities);
-		companyusermapping.setWorklocaction(savedCompany.getAddress());
+		companyusermapping.setWorklocaction(savedCompany.getCompanyaddress());
 		return companyusermapping;
 	}
 
@@ -60,15 +66,9 @@ public class CompanyUserMappingServiceImpl implements ICompanyUserMappingService
 		return user;
 	}
 
-	private Company getUpdatedCompanyinfo(Company company,User user) {
-		company.setCompanyStatus(0);
+	private Company getUpdatedCompanyinfo(Company company,User user) {		
 		company.setActive(Boolean.TRUE);
 		company.setCompanyEmailDomain(ConversionUtil.getEmailDomain(user.getEmail()));
 		return company;
 	}
-
-	
-	
-
-	
 }

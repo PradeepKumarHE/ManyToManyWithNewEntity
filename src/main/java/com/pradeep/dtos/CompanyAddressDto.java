@@ -1,19 +1,11 @@
-package com.pradeep.domain;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.pradeep.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-public class CompanyAddress {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CompanyAddressDto {
     private Long addressId;
     private String street;
     private Integer countryId;

@@ -1,4 +1,4 @@
-package com.pradeep.domain;
+package com.pradeep.dtos;
 
 import java.util.Date;
 import java.util.Set;
@@ -20,10 +20,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDto {
 	private Long userId;
 	private String firstName;
 	private String lastName;
@@ -35,12 +32,6 @@ public class User {
 	private String guid;
 	private Boolean isNotlocked=Boolean.TRUE;
 	private Date lastLogin;
-	private String profilePic;
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-	@JsonManagedReference(value = "user")
-	Set<CompanyUserMapping> companyUserMapping;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "address_id")
-	private UserAddress useraddress;
+	private String profilePic;	
+	private UserAddressDto useraddress;
 }

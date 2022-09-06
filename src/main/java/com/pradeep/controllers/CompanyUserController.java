@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pradeep.domain.Company;
 import com.pradeep.domain.CompanyUserMapping;
+import com.pradeep.dtos.CompanyUserMappingDto;
 import com.pradeep.service.ICompanyService;
 import com.pradeep.service.ICompanyUserMappingService;
 import com.pradeep.service.IUserService;
@@ -39,9 +40,9 @@ public class CompanyUserController {
 	}
 	
 	@GetMapping("/company/{companystatus}")
-	public ResponseEntity<List<CompanyUserMapping>> getCompanyList(@PathVariable("companystatus")  Integer companystatus)  {
-		List<CompanyUserMapping> savedCompanyUserMapping = companyUserMappingService.getCompanyList(companystatus);
-		return new ResponseEntity<List<CompanyUserMapping>>(savedCompanyUserMapping, HttpStatus.OK);
+	public ResponseEntity<List<CompanyUserMappingDto>> getCompanyList(@PathVariable("companystatus")  Integer companystatus)  {
+		List<CompanyUserMappingDto> savedCompanyUserMapping = companyUserMappingService.getCompanyList(companystatus);
+		return new ResponseEntity<List<CompanyUserMappingDto>>(savedCompanyUserMapping, HttpStatus.OK);
 	}
 
 	
