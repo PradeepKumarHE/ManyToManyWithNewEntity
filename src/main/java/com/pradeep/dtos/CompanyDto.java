@@ -1,8 +1,12 @@
 package com.pradeep.dtos;
 
+import java.util.Set;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.pradeep.domain.ExternalCompany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +26,6 @@ public class CompanyDto {
 	private String companyLogo;
 	private Integer companyStatus;
 	private Boolean active;	
-	//Set<ExternalCompany> externalCompanies;	
+	Set<ExternalCompany> externalCompanies;	
 	private CompanyAddressDto companyaddress;
 }

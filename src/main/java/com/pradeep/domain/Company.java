@@ -4,7 +4,6 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,11 +33,12 @@ public class Company {
 	private Integer companyStatus;
 	private Boolean active;
 	
-	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "company")
 	@JsonManagedReference(value = "company")
 	Set<CompanyUserMapping> companyUserMapping;
 	
-	@OneToMany(mappedBy = "parentCompany",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "parentCompany")
+	@JsonManagedReference(value = "externalcompanies")
 	Set<ExternalCompany> externalCompanies;
 	
 	@OneToOne(cascade = CascadeType.ALL)
