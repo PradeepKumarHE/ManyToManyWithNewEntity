@@ -1,10 +1,10 @@
 package com.pradeep.domain;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -37,6 +38,7 @@ public class ExternalCompany {
 	@JsonBackReference(value = "externalcompanies")
 	private Company parentCompany;
 	
-	@OneToMany(mappedBy = "externalcompany",fetch = FetchType.EAGER)
-	private Set<ExternalCompanyAddress> address;
+	@OneToMany(mappedBy = "externalcompany")
+	@JsonManagedReference(value = "externalcompanyaddresses")
+	private List<ExternalCompanyAddress> externalcompanyaddresses;
 }

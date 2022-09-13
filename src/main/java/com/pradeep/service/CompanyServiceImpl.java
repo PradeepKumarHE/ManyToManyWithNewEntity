@@ -7,9 +7,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pradeep.domain.Company;
 import com.pradeep.domain.CompanyUserMapping;
 import com.pradeep.domain.ExternalCompany;
+import com.pradeep.domain.ExternalCompanyAddress;
 import com.pradeep.domain.User;
 import com.pradeep.dtos.CompanyDto;
 import com.pradeep.dtos.CompanyUserMappingDto;
@@ -49,8 +52,8 @@ public class CompanyServiceImpl implements ICompanyService {
 
 
 	@Override
-	public List<CompanyUserMappingDto> getCompanyList(Integer companystatus) {
-		List<CompanyUserMapping> companyUserMappingEntities=companyUserMappingRepository.getCompanyListByCompanyStatus();		
+	public List<CompanyUserMappingDto> getCompanyListByStatus(Integer companystatus) {
+		List<CompanyUserMapping> companyUserMappingEntities=companyUserMappingRepository.getCompanyListByCompanyStatus(companystatus);		
 		return companyUserMappingEntities.stream().map(post -> modelMapper.map(post, CompanyUserMappingDto.class))
 				.collect(Collectors.toList());
 	}
@@ -58,17 +61,15 @@ public class CompanyServiceImpl implements ICompanyService {
 	@Override
 	public ExternalCompany createExternalCompany(ExternalCompany externalCompany,Long companyid) throws ResourceNotFoundException {
 		Company company = companyRepository.findById(companyid).orElseThrow(() -> new ResourceNotFoundException("Company not found :: " + companyid));
-		externalCompany.setParentCompany(company);
-		return externalCompanyRepository.save(externalCompany);
+		externalCompany.setParentCompany(company);		
+		ExternalCompany savedExternalCompany=externalCompanyRepository.save(externalCompany);
+		return savedExternalCompany;
 	}
-
 
 	@Override
 	public User createUser(User user, Long companyid) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@Override
 	public CompanyDto getCompanyInfoById(Long companyid) throws ResourceNotFoundException {
@@ -80,7 +81,6 @@ public class CompanyServiceImpl implements ICompanyService {
 
 	@Override
 	public User getCompanyUsersById(Long companyid) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -103,9 +103,7 @@ public class CompanyServiceImpl implements ICompanyService {
 		companyusermapping.setRole("ROLE_ADMIN");
 		String [] authorities= {"create","read"};
 		companyusermapping.setAuthorities(authorities);
-		companyusermapping.setWorklocaction(savedCompany.getCompanyaddress());
+		companyusermapping.setWorklocaction(savedCompany.getCompanyaddress().get(0));
 		return companyusermapping;
-	}
-
-	
+	}	
 }

@@ -13,7 +13,7 @@ public interface ICompanyService {
 
 	CompanyUserMapping createCompany(CompanyUserMapping companyusermapping);
 	
-	List<CompanyUserMappingDto> getCompanyList(Integer companystatus);
+	List<CompanyUserMappingDto> getCompanyListByStatus(Integer companystatus);
 	
 	ExternalCompany createExternalCompany(ExternalCompany externalCompany, Long companyid) throws ResourceNotFoundException;
 

@@ -27,9 +27,9 @@ public class CompanyUserMapping {
 	@JsonBackReference(value = "company")
 	private Company company;
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id") 
-	 @JsonBackReference(value = "user")
+	@JsonBackReference(value = "user")
 	private User user;
 
 	private String designation;

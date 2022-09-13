@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.pradeep.domain.Company;
 import com.pradeep.domain.CompanyUserMapping;
 import com.pradeep.domain.ExternalCompany;
 import com.pradeep.domain.User;
@@ -36,11 +35,10 @@ public class CompanyController {
 	}
 	
 	@GetMapping("/status/{companystatus}")
-	public ResponseEntity<List<CompanyUserMappingDto>> getCompanyList(@PathVariable("companystatus")  Integer companystatus)  {
-		List<CompanyUserMappingDto> savedCompanyUserMapping = companyService.getCompanyList(companystatus);
+	public ResponseEntity<List<CompanyUserMappingDto>> getCompanyListByStatus(@PathVariable("companystatus")  Integer companystatus)  {
+		List<CompanyUserMappingDto> savedCompanyUserMapping = companyService.getCompanyListByStatus(companystatus);
 		return new ResponseEntity<List<CompanyUserMappingDto>>(savedCompanyUserMapping, HttpStatus.OK);
 	}
-
 	
 	@PostMapping("/{companyid}/externalcompanies")
 	public ResponseEntity<ExternalCompany> createExternalCompany(@RequestBody ExternalCompany externalCompany,@PathVariable("companyid") Long companyid) throws ResourceNotFoundException {

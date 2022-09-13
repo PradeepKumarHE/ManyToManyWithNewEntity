@@ -1,5 +1,6 @@
 package com.pradeep.domain;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -35,13 +36,13 @@ public class Company {
 	
 	@OneToMany(mappedBy = "company")
 	@JsonManagedReference(value = "company")
-	Set<CompanyUserMapping> companyUserMapping;
+	List<CompanyUserMapping> companyUserMapping;
 	
 	@OneToMany(mappedBy = "parentCompany")
 	@JsonManagedReference(value = "externalcompanies")
-	Set<ExternalCompany> externalCompanies;
+	List<ExternalCompany> externalCompanies;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "address_id")
-	private CompanyAddress companyaddress;
+	@OneToMany(mappedBy = "company")
+	@JsonManagedReference(value = "companyaddress")
+	List<CompanyAddress> companyaddress;
 }

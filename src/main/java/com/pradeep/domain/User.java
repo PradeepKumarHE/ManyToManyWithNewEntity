@@ -1,6 +1,7 @@
 package com.pradeep.domain;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -38,7 +39,7 @@ public class User {
 	private String profilePic;
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	@JsonManagedReference(value = "user")
-	Set<CompanyUserMapping> companyUserMapping;
+	List<CompanyUserMapping> companyUserMapping;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
