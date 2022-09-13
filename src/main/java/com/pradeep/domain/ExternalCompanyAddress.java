@@ -1,7 +1,7 @@
 package com.pradeep.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +29,7 @@ public class ExternalCompanyAddress {
 	private Long ec_phone;
 	private Integer ec_phoneExtension;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch =FetchType.LAZY)
     @JoinColumn(name = "external_company_id") 
 	@JsonBackReference(value = "externalcompanyaddresses")
 	private ExternalCompany externalcompany;

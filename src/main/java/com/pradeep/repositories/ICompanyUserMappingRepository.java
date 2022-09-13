@@ -20,4 +20,7 @@ public interface ICompanyUserMappingRepository extends JpaRepository <CompanyUse
 
 	@Query("SELECT cum,c FROM CompanyUserMapping cum JOIN cum.company c JOIN cum.user u WHERE cum.company.companyStatus=:companyStatus")
 	List<CompanyUserMapping> getCompanyListByCompanyStatus(@Param("companyStatus") Integer companystatus);
+	
+	@Query("SELECT cum FROM CompanyUserMapping cum JOIN cum.company c JOIN cum.user u WHERE cum.company.companyId=:companyId")
+   	public List<CompanyUserMapping> getUserMappingByCompanyId(@Param("companyId") Long companyId);
 }

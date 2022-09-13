@@ -1,16 +1,13 @@
 package com.pradeep.domain;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -38,11 +35,11 @@ public class Company {
 	@JsonManagedReference(value = "company")
 	List<CompanyUserMapping> companyUserMapping;
 	
-	@OneToMany(mappedBy = "parentCompany")
+	@OneToMany(mappedBy = "parentCompany",cascade = {CascadeType.ALL})
 	@JsonManagedReference(value = "externalcompanies")
 	List<ExternalCompany> externalCompanies;
 	
-	@OneToMany(mappedBy = "company")
+	@OneToMany(mappedBy = "company",cascade = {CascadeType.ALL})
 	@JsonManagedReference(value = "companyaddress")
 	List<CompanyAddress> companyaddress;
 }

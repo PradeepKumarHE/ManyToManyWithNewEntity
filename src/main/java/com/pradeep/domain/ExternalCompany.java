@@ -1,10 +1,10 @@
 package com.pradeep.domain;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,12 +33,12 @@ public class ExternalCompany {
 	private String companyLogo;	
 	private Boolean active=Boolean.TRUE;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch =FetchType.LAZY)
     @JoinColumn(name = "parent_company_id") 
 	@JsonBackReference(value = "externalcompanies")
 	private Company parentCompany;
 	
-	@OneToMany(mappedBy = "externalcompany")
+	@OneToMany(mappedBy = "externalcompany",cascade = {CascadeType.ALL})
 	@JsonManagedReference(value = "externalcompanyaddresses")
 	private List<ExternalCompanyAddress> externalcompanyaddresses;
 }

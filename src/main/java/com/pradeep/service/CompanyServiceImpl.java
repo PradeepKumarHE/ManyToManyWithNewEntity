@@ -7,16 +7,16 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pradeep.domain.Company;
+import com.pradeep.domain.CompanyAddress;
 import com.pradeep.domain.CompanyUserMapping;
 import com.pradeep.domain.ExternalCompany;
-import com.pradeep.domain.ExternalCompanyAddress;
 import com.pradeep.domain.User;
 import com.pradeep.dtos.CompanyDto;
 import com.pradeep.dtos.CompanyUserMappingDto;
+import com.pradeep.dtos.UserCompanyMapDto;
 import com.pradeep.exceptions.ResourceNotFoundException;
+import com.pradeep.repositories.ICompanyAddressRepository;
 import com.pradeep.repositories.ICompanyRepository;
 import com.pradeep.repositories.ICompanyUserMappingRepository;
 import com.pradeep.repositories.IExternalCompanyRepository;
@@ -38,6 +38,9 @@ public class CompanyServiceImpl implements ICompanyService {
 	
 	@Autowired
 	private IUserRepository userRepository;
+	
+	@Autowired
+	private ICompanyAddressRepository companyAddressRepository;	
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -67,8 +70,12 @@ public class CompanyServiceImpl implements ICompanyService {
 	}
 
 	@Override
-	public User createUser(User user, Long companyid) {
-		return null;
+	public CompanyUserMapping createUser(CompanyUserMapping companyUserMapping, Long companyid) throws ResourceNotFoundException {
+		Company savedcompany = companyRepository.findById(companyid).orElseThrow(() -> new ResourceNotFoundException("Company not found :: " + companyid));
+		User saveduser=userRepository.save(getUpdatedUserInfo(companyUserMapping.getUser()));
+		companyUserMapping.setCompany(savedcompany);
+		companyUserMapping.setUser(saveduser);
+		return companyUserMappingRepository.save(companyUserMapping);
 	}
 
 	@Override
@@ -80,10 +87,19 @@ public class CompanyServiceImpl implements ICompanyService {
 
 
 	@Override
-	public User getCompanyUsersById(Long companyid) {
-		return null;
+	public List<UserCompanyMapDto> getCompanyUsersById(Long companyid) {
+		List<CompanyUserMapping> companyUserMappingEntities=companyUserMappingRepository.getUserMappingByCompanyId(companyid);
+		return companyUserMappingEntities.stream().map(post -> modelMapper.map(post, UserCompanyMapDto.class))
+				.collect(Collectors.toList());		
 	}
 
+	@Override
+	public CompanyAddress addCompanyAddress(CompanyAddress companyAddress, Long companyid) throws ResourceNotFoundException {
+		Company company = companyRepository.findById(companyid).orElseThrow(() -> new ResourceNotFoundException("Company not found :: " + companyid));
+		companyAddress.setCompany(company);
+		return companyAddressRepository.save(companyAddress);
+	}	
+	
 	private Company getUpdatedCompanyinfo(Company company,User user) {		
 		company.setActive(Boolean.TRUE);
 		company.setCompanyEmailDomain(ConversionUtil.getEmailDomain(user.getEmail()));
@@ -105,5 +121,8 @@ public class CompanyServiceImpl implements ICompanyService {
 		companyusermapping.setAuthorities(authorities);
 		companyusermapping.setWorklocaction(savedCompany.getCompanyaddress().get(0));
 		return companyusermapping;
-	}	
+	}
+
+
+	
 }

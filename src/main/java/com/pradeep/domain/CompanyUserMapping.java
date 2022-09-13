@@ -2,7 +2,6 @@ package com.pradeep.domain;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +37,7 @@ public class CompanyUserMapping {
     private boolean isExternal;
     private boolean isActive=true;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "worklocation_id") 
 	private CompanyAddress worklocaction;
     
@@ -49,6 +48,4 @@ public class CompanyUserMapping {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "external_company_address_id") 
 	private ExternalCompanyAddress externalCompanyAddress;
-	
-    
 }

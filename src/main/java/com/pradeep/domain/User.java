@@ -2,7 +2,6 @@ package com.pradeep.domain;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -37,6 +36,7 @@ public class User {
 	private Boolean isNotlocked=Boolean.TRUE;
 	private Date lastLogin;
 	private String profilePic;
+	
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	@JsonManagedReference(value = "user")
 	List<CompanyUserMapping> companyUserMapping;
