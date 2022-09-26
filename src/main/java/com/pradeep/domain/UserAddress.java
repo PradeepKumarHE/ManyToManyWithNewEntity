@@ -15,14 +15,14 @@ public class UserAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long useraddressId;
-    private String user_street;
-    private Integer user_countryId;
-    private Integer user_stateId;
-    private Integer user_cityId;
-    private Long user_zipCode;
-    private Integer user_phoneCountryId;
-    private Long user_phone;
-    private Integer user_landPhoneCountryId;
-    private Long user_landPhone;
-    private Integer user_landPhoneExtension;
+    private String street;
+    private Integer countryId;
+    private Integer stateId;
+    private Integer cityId;
+    private Long zipCode;
+    private Integer phoneCountryId;
+    private Long phone;
+    private Integer landPhoneCountryId;
+    private Long landPhone;
+    private Integer landPhoneExtension;
 }

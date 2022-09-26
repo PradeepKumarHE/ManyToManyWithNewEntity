@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pradeep.domain.CompanyAddress;
 import com.pradeep.domain.CompanyUserMapping;
 import com.pradeep.domain.ExternalCompany;
-import com.pradeep.domain.User;
 import com.pradeep.dtos.CompanyDto;
 import com.pradeep.dtos.CompanyUserMappingDto;
 import com.pradeep.dtos.UserCompanyMapDto;
+import com.pradeep.exceptions.ResourceExistsException;
 import com.pradeep.exceptions.ResourceNotFoundException;
 import com.pradeep.service.ICompanyService;
 
@@ -31,7 +30,7 @@ public class CompanyController {
 	ICompanyService companyService;
 	
 	@PostMapping
-	public ResponseEntity<CompanyUserMapping> createCompany(@RequestBody CompanyUserMapping companyusermapping) throws JsonProcessingException {
+	public ResponseEntity<CompanyUserMapping> createCompany(@RequestBody CompanyUserMapping companyusermapping) throws ResourceExistsException {
 		CompanyUserMapping savedCompanyUserMapping = companyService.createCompany(companyusermapping);
 		return new ResponseEntity<CompanyUserMapping>(savedCompanyUserMapping, HttpStatus.CREATED);
 	}
@@ -43,13 +42,13 @@ public class CompanyController {
 	}
 	
 	@PostMapping("/{companyid}/externalcompanies")
-	public ResponseEntity<ExternalCompany> createExternalCompany(@RequestBody ExternalCompany externalCompany,@PathVariable("companyid") Long companyid) throws ResourceNotFoundException {
+	public ResponseEntity<ExternalCompany> createExternalCompany(@RequestBody ExternalCompany externalCompany,@PathVariable("companyid") Long companyid) throws ResourceNotFoundException, ResourceExistsException {
 		ExternalCompany savedCompanyUserMapping = companyService.createExternalCompany(externalCompany,companyid);
 		return new ResponseEntity<ExternalCompany>(savedCompanyUserMapping, HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/{companyid}/users")
-	public ResponseEntity<CompanyUserMapping> createUser(@RequestBody CompanyUserMapping companyUserMapping,@PathVariable("companyid") Long companyid) throws ResourceNotFoundException {
+	public ResponseEntity<CompanyUserMapping> createUser(@RequestBody CompanyUserMapping companyUserMapping,@PathVariable("companyid") Long companyid) throws ResourceNotFoundException, ResourceExistsException {
 		CompanyUserMapping savedCompanyUserMapping = companyService.createUser(companyUserMapping,companyid);
 		return new ResponseEntity<CompanyUserMapping>(savedCompanyUserMapping, HttpStatus.CREATED);
 	}
@@ -70,6 +69,6 @@ public class CompanyController {
 	public ResponseEntity<CompanyAddress> addCompanyAddress(@RequestBody CompanyAddress companyAddress,@PathVariable("companyid") Long companyid) throws ResourceNotFoundException {
 		CompanyAddress savedCompanyUserMapping = companyService.addCompanyAddress(companyAddress,companyid);
 		return new ResponseEntity<CompanyAddress>(savedCompanyUserMapping, HttpStatus.CREATED);
-	}
+	}	
 	
 }

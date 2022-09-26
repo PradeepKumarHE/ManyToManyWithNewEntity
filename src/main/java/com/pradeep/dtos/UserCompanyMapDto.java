@@ -1,9 +1,5 @@
 package com.pradeep.dtos;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 import com.pradeep.domain.CompanyAddress;
 import com.pradeep.domain.ExternalCompany;
 import com.pradeep.domain.ExternalCompanyAddress;

@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserAddressDto {
-    private Long addressId;
+    private Long useraddressId;
     private String street;
     private Integer countryId;
     private Integer stateId;

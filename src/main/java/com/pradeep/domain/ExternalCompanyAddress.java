@@ -20,14 +20,14 @@ public class ExternalCompanyAddress {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long externalCompanyAddressId;
-	private String ec_street;
-	private Integer ec_countryId;
-	private Integer ec_stateId;
-	private Integer ec_cityId;
-	private Long ec_zipCode;
-	private Integer ec_phoneCountryId;
-	private Long ec_phone;
-	private Integer ec_phoneExtension;
+	private String street;
+	private Integer countryId;
+	private Integer stateId;
+	private Integer cityId;
+	private Long zipCode;
+	private Integer phoneCountryId;
+	private Long phone;
+	private Integer phoneExtension;
 	
 	@ManyToOne(fetch =FetchType.LAZY)
     @JoinColumn(name = "external_company_id") 

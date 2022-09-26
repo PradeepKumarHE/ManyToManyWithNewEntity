@@ -1,10 +1,10 @@
 package com.pradeep.util;
 
+import java.util.Random;
+
 import org.springframework.stereotype.Component;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Component
 public class ConversionUtil {
 
@@ -16,4 +16,9 @@ public class ConversionUtil {
 		return email.substring(email.indexOf('@')+1,email.length()).replace(".", "");
 	}
 	
+	public static String encodeUrl() {        
+       Random random=new Random();
+       int randomNumber=random.nextInt(1000000);
+       return String.valueOf(randomNumber);
+    }
 }

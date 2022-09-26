@@ -35,17 +35,17 @@ public class CompanyUserMapping {
 	private String role;
 	private String [] authorities;
     private boolean isExternal;
-    private boolean isActive=true;
+    private boolean isActive=false;
     
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "worklocation_id") 
 	private CompanyAddress worklocaction;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "external_company_id") 
 	private ExternalCompany externalCompany;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "external_company_address_id") 
 	private ExternalCompanyAddress externalCompanyAddress;
 }
