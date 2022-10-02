@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class CompanyAddress {
+public class CompanyAddress  extends CustomAudit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;

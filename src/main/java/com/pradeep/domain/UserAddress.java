@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
-public class UserAddress {
+public class UserAddress  extends CustomAudit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long useraddressId;

@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class CompanyUserMapping {
+public class CompanyUserMapping extends CustomAudit{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long companyUserMappingId;
@@ -34,8 +34,8 @@ public class CompanyUserMapping {
 	private String designation;
 	private String role;
 	private String [] authorities;
-    private boolean isExternal;
-    private boolean isActive=false;
+    private Boolean isExternal;
+    private Boolean isActive=false;
     
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "worklocation_id") 

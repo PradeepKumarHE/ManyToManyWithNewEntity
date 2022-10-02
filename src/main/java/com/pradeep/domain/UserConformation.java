@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @TypeDef(name = "json", typeClass = JsonType.class)
-public class UserConformation {
+public class UserConformation  extends CustomAudit{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userConformationId;

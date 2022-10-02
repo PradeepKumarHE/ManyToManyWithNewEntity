@@ -158,15 +158,16 @@ public class CompanyServiceImpl implements ICompanyService {
 		//String[] ignoreCompanyUserMappingFields = {"companyUserMappingId","company","user","worklocaction","externalCompany","externalCompanyAddress"};
 		savedCompanyUserMapping.setCompany(savedCompany);
 		savedCompanyUserMapping.setUser(savedUser);
-		savedCompanyUserMapping.setDesignation("COMPNAY_ADMIN");
-		String [] authorities= {"create","read","write","update","delete"};
-		savedCompanyUserMapping.setAuthorities(authorities);
-		
 		return companyUserMappingRepository.save(savedCompanyUserMapping);
 	}
 	
 	private Company getUpdatedCompanyinfo(Company company,User user){	
 		company.setActive(Boolean.TRUE);
+		if(company.getCompanyName().equals("Friends Group Services")) {
+			company.setCompanyStatus(1);
+		}else {
+			 company.setCompanyStatus(0);
+		}
 		company.setCompanyEmailDomain(ConversionUtil.getEmailDomain(user.getEmail()));
 		return company;
 	}
@@ -174,17 +175,23 @@ public class CompanyServiceImpl implements ICompanyService {
 	private User getUpdatedUserInfo(User user) {
 		user.setEncryptedEmail(EncryptionDecryption.getSha3EncryptedString(user.getEmail()));
 		user.setUsername(ConversionUtil.flattenUserName(user.getEmail()));
-		user.setUserStatus("Registered");
+		user.setUserStatus("REFU");
 		return user;
 	}
 	
 	private CompanyUserMapping getUpdatedCompanyUserMapping(Company savedCompany, User saveduser,CompanyUserMapping companyusermapping) {
 		companyusermapping.setCompany(savedCompany);
 		companyusermapping.setUser(saveduser);
+		companyusermapping.setDesignation("COMPANY_OWNER");
 		companyusermapping.setRole("ROLE_ADMIN");
-		companyusermapping.setActive(true);
-		String [] authorities= {"create","read"};
+		String [] authorities= {"read","create","delete","update"};
 		companyusermapping.setAuthorities(authorities);
+		if(savedCompany.getCompanyName().equals("Friends Group Services")) {
+			companyusermapping.setIsActive(true);
+		}else {
+			companyusermapping.setIsActive(false);
+		}
+		companyusermapping.setIsExternal(false);
 		companyusermapping.setWorklocaction(savedCompany.getCompanyaddress().get(0));
 		return companyusermapping;
 	}

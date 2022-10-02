@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pradeep.domain.CompanyAddress;
 import com.pradeep.domain.CompanyUserMapping;
 import com.pradeep.domain.ExternalCompany;
@@ -30,7 +31,7 @@ public class CompanyController {
 	ICompanyService companyService;
 	
 	@PostMapping
-	public ResponseEntity<CompanyUserMapping> createCompany(@RequestBody CompanyUserMapping companyusermapping) throws ResourceExistsException {
+	public ResponseEntity<CompanyUserMapping> createCompany(@RequestBody CompanyUserMapping companyusermapping) throws ResourceExistsException, JsonProcessingException {
 		CompanyUserMapping savedCompanyUserMapping = companyService.createCompany(companyusermapping);
 		return new ResponseEntity<CompanyUserMapping>(savedCompanyUserMapping, HttpStatus.CREATED);
 	}
