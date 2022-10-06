@@ -11,3 +11,5 @@ spring:
 springdoc:
   swagger-ui:
     path: /swaggerui
+
+NotificationServiceURL: http://localhost:9090/api/v1/notification

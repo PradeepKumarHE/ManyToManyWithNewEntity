@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pradeep.domain.ExternalCompany;
 import com.pradeep.domain.User;
-import com.pradeep.domain.UserConformation;
+import com.pradeep.dtos.UserInvitationDto;
 import com.pradeep.exceptions.ResourceNotFoundException;
 import com.pradeep.responses.Response1;
+import com.pradeep.responses.Response2;
 import com.pradeep.service.IUserService;
 
 @RestController
@@ -36,15 +37,21 @@ public class UserController {
 		return new ResponseEntity<ExternalCompany>(savedCompanyUserMapping, HttpStatus.OK);
 	}
 	
-	@PostMapping("/{userid}/invite")
-	public ResponseEntity<Response1> inviteUserById(@PathVariable("userid") Long userid,@RequestBody UserConformation userConformation) throws ResourceNotFoundException {
-		Response1 response = userService.inviteUserById(userid,userConformation);
+	@PostMapping("/invite")
+	public ResponseEntity<Response1> inviteUserById(@RequestBody UserInvitationDto userInvitationDto) throws ResourceNotFoundException {
+		Response1 response = userService.inviteUserById(userInvitationDto);
 		return new ResponseEntity<Response1>(response, HttpStatus.OK);
 	}	
 	
 	@GetMapping("/register-invite-status/{shortcode}")
-	public ResponseEntity<Response1> verifyRegistrationInvitationStatus(@PathVariable("shortcode") Integer shortcode) throws ResourceNotFoundException {
-		Response1 response =  userService.verifyRegistrationInvitationStatus(shortcode);
+	public ResponseEntity<Response2> verifyRegistrationInvitationStatus(@PathVariable("shortcode") Integer shortcode) throws ResourceNotFoundException {
+		Response2 response =  userService.verifyRegistrationInvitationStatus(shortcode);
+		return new ResponseEntity<Response2>(response, HttpStatus.OK);
+	}
+	
+	@PostMapping("/mobile")
+	public ResponseEntity<Response1> updateMobile(@RequestBody UserInvitationDto userInvitationDto) throws ResourceNotFoundException {
+		Response1 response = userService.inviteUserById(userInvitationDto);
 		return new ResponseEntity<Response1>(response, HttpStatus.OK);
 	}
 }

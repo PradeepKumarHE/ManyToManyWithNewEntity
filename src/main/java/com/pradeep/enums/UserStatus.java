@@ -1,0 +1,5 @@
+package com.pradeep.enums;
+
+public enum UserStatus {
+	REGISTERED, INVITED, EMAIL_VERIFIED, EMAIL_VERIFIED_FP,MOBILE_VERIFIED,MOBILE_VERIFIED_FP
+}

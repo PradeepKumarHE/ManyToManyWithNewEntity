@@ -39,7 +39,7 @@ public class Company extends CustomAudit{
 	@JsonManagedReference(value = "externalcompanies")
 	List<ExternalCompany> externalCompanies;
 	
-	@OneToMany(mappedBy = "company",cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
 	@JsonManagedReference(value = "companyaddress")
 	List<CompanyAddress> companyaddress;
 }

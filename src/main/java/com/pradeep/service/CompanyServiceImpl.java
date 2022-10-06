@@ -128,34 +128,35 @@ public class CompanyServiceImpl implements ICompanyService {
 		verifyCompanyExistance(companyusermapping);
 		CompanyUserMapping savedCompanyUserMapping = companyUserMappingRepository.findById(companyUserMappingId).orElseThrow(() -> new ResourceNotFoundException("Company not found :: " + companyUserMappingId));
 		
-		String[] ignoreCompanyAddressFields = {"addressId"};
+		String[] ignoreCompanyAddressFields = {"addressId","version","createdDate","createdBy"};
 		CompanyAddress companyAddress=companyusermapping.getCompany().getCompanyaddress().get(0);
 		CompanyAddress savedCompanyAddress=savedCompanyUserMapping.getCompany().getCompanyaddress().get(0);		
 		BeanUtils.copyProperties(companyAddress, savedCompanyAddress, ignoreCompanyAddressFields);		
 		List<CompanyAddress> companyaddressList=new ArrayList<CompanyAddress>(); 
+		savedCompanyAddress.setCompany(savedCompanyUserMapping.getCompany());
 		companyaddressList.add(savedCompanyAddress);
 		
-		String[] ignoreCompanyFields = {"companyId","active","companyUserMapping","externalCompanies","companyaddress"};
+		String[] ignoreCompanyFields = {"companyId","active","companyUserMapping","externalCompanies","companyaddress","version","createdDate","createdBy"};
 		Company company=companyusermapping.getCompany();
 		Company savedCompany=savedCompanyUserMapping.getCompany();		
 		BeanUtils.copyProperties(company, savedCompany, ignoreCompanyFields);
 		savedCompany.setCompanyEmailDomain(ConversionUtil.getEmailDomain(companyusermapping.getUser().getEmail()));
 		savedCompany.setCompanyaddress(companyaddressList);
 		
-		String[] ignoreUserAddressFields = {"useraddressId"};
+		String[] ignoreUserAddressFields = {"useraddressId","version","createdDate","createdBy"};
 		UserAddress userAddress=companyusermapping.getUser().getUseraddress();
 		UserAddress savedUserAddress=savedCompanyUserMapping.getUser().getUseraddress();		
 		BeanUtils.copyProperties(userAddress, savedUserAddress, ignoreUserAddressFields);		
 		
-		String[] ignoreUserFields = {"userId","companyUserMapping","useraddress"};
+		String[] ignoreUserFields = {"userId","companyUserMapping","useraddress","version","createdDate","createdBy"};
 		User user=companyusermapping.getUser();
 		User savedUser=savedCompanyUserMapping.getUser();		
 		BeanUtils.copyProperties(user, savedUser, ignoreUserFields);
+		
 		savedUser.setEncryptedEmail(EncryptionDecryption.getSha3EncryptedString(user.getEmail()));
 		savedUser.setUsername(ConversionUtil.flattenUserName(user.getEmail()));
 		savedUser.setUseraddress(savedUserAddress);
 		
-		//String[] ignoreCompanyUserMappingFields = {"companyUserMappingId","company","user","worklocaction","externalCompany","externalCompanyAddress"};
 		savedCompanyUserMapping.setCompany(savedCompany);
 		savedCompanyUserMapping.setUser(savedUser);
 		return companyUserMappingRepository.save(savedCompanyUserMapping);
@@ -175,7 +176,7 @@ public class CompanyServiceImpl implements ICompanyService {
 	private User getUpdatedUserInfo(User user) {
 		user.setEncryptedEmail(EncryptionDecryption.getSha3EncryptedString(user.getEmail()));
 		user.setUsername(ConversionUtil.flattenUserName(user.getEmail()));
-		user.setUserStatus("REFU");
+		user.setUserStatus("REGISTERED");
 		return user;
 	}
 	
