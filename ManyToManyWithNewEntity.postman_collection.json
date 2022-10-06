@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "2ec3aedd-81e5-4c13-ad84-c57037d5aa40",
+		"name": "ManyToManyWithNewEntity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2271680"
+	},
+	"item": [
+		{
+			"name": "Create Super Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company\": {\n        \"companyName\": \"Friends Group Services\",\n        \"companyDescription\": \"A company anybody can trust\",\n        \"companyWebsite\": \"www.fs.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,      \n        \"companyLogo\":\"Will update shortly\",\n        \"createdBy\":0,\n        \"companyaddress\": [\n            {\n                \"street\": \"New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 316986,\n                \"phoneExtension\": 123,\n                \"createdBy\":0\n            }\n        ]\n    },\n    \"user\": {\n        \"firstName\": \"Pradeep\",\n        \"lastName\": \"Kumar\",\n        \"email\": \"pradeep@fs.com\",\n        \"createdBy\":0,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\":0\n        }\n    },    \n    \"createdBy\":0\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Website Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company\": {\n        \"companyName\": \"TCS\",        \n        \"companyWebsite\": \"www.tcs.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,      \n        \"createdBy\":0,\n        \"companyaddress\": [\n            {\n                \"street\": \"New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 316986,\n                \"phoneExtension\": 123,\n                \"createdBy\":0\n            }\n        ]\n    },\n    \"user\": {\n        \"firstName\": \"Vanditha\",\n        \"lastName\": \"Gowda\",\n        \"email\": \"vanditha@tcs.com\",\n        \"createdBy\":0,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\":0\n        }\n    },  \n    \"createdBy\":0    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Potential customer create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company\": {\n        \"companyName\": \"Infosys\",        \n        \"companyWebsite\": \"www.infosys.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,      \n        \"createdBy\":1,\n        \"companyaddress\": [\n            {\n                \"street\": \"New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 316986,\n                \"phoneExtension\": 123,\n                \"createdBy\":1\n            }\n        ]\n    },\n    \"user\": {\n        \"firstName\": \"Arun\",\n        \"lastName\": \"Kumar\",\n        \"email\": \"arun@infosys.com\",\n        \"createdBy\":1,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\":1\n        }\n    },  \n    \"createdBy\":1    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Company by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/company/status/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company",
+						"status",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Potential Company",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company\": {\n        \"companyId\": 2,\n        \"companyName\": \"TCS\",\n        \"companyDescription\": \"Good Software company\",\n        \"companyWebsite\": \"www.tcs.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,\n        \"companyStatus\": 1,\n        \"companyaddress\": [\n            {\n                \"street\": \"Updated New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 987654,\n                \"phoneExtension\": 566\n            }\n        ]\n    },\n    \"user\": {\n        \"userId\": 2,\n        \"firstName\": \"Vanditha\",\n        \"lastName\": \"Gowda\",\n        \"email\": \"vanditha@tcs.com\",\n        \"encryptedEmail\": \"c03d886ce80d20e7d27c0f913600a61553d800883becfb48b530cc495cb5d053\",\n        \"username\": \"vandithatcscom\",\n        \"password\": null,\n        \"userStatus\": \"REFU\",\n        \"guid\": null,\n        \"isNotlocked\": true,\n        \"lastLogin\": null,\n        \"profilePic\": null,\n        \"useraddress\": {\n            \"phoneCountryId\": 1,\n            \"phone\": 8722922982,\n            \"landPhoneCountryId\": 1,\n            \"landPhone\": 316986,\n            \"landPhoneExtension\": 123\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/companyusermapping/2/potential",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companyusermapping",
+						"2",
+						"potential"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invite User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inviteeUserId\":2,\n\t\"inviterUserId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/invite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"invite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Registration Invite",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/register-invite-status/302524",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"register-invite-status",
+						"302524"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
