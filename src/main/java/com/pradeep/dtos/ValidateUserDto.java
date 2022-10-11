@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserInvitationDto {
-	private String invitee;
-	private String inviter;
+public class ValidateUserDto {
+	private String tinystring;
 }

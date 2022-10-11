@@ -11,5 +11,12 @@ spring:
 springdoc:
   swagger-ui:
     path: /swaggerui
+    
+server:
+ error:
+  include-message: always
+  include-binding-errors: always
+  include-stacktrace: never
+  include-exception: false
 
 NotificationServiceURL: http://localhost:9090/api/v1/notification

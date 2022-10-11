@@ -148,7 +148,7 @@ public class CompanyServiceImpl implements ICompanyService {
 		UserAddress savedUserAddress=savedCompanyUserMapping.getUser().getUseraddress();		
 		BeanUtils.copyProperties(userAddress, savedUserAddress, ignoreUserAddressFields);		
 		
-		String[] ignoreUserFields = {"userId","companyUserMapping","useraddress","version","createdDate","createdBy"};
+		String[] ignoreUserFields = {"userId","companyUserMapping","useraddress","userStatus","version","createdDate","createdBy"};
 		User user=companyusermapping.getUser();
 		User savedUser=savedCompanyUserMapping.getUser();		
 		BeanUtils.copyProperties(user, savedUser, ignoreUserFields);
@@ -161,7 +161,12 @@ public class CompanyServiceImpl implements ICompanyService {
 		savedCompanyUserMapping.setUser(savedUser);
 		return companyUserMappingRepository.save(savedCompanyUserMapping);
 	}
-	
+
+	@Override
+	public List<ExternalCompany> getExternalCompaniesByCompanyId(Long companyid) {
+		return null;
+	}
+
 	private Company getUpdatedCompanyinfo(Company company,User user){	
 		company.setActive(Boolean.TRUE);
 		if(company.getCompanyName().equals("Friends Group Services")) {

@@ -47,6 +47,12 @@ public class CompanyController {
 		ExternalCompany savedCompanyUserMapping = companyService.createExternalCompany(externalCompany,companyid);
 		return new ResponseEntity<ExternalCompany>(savedCompanyUserMapping, HttpStatus.CREATED);
 	}
+
+	@GetMapping("/{companyid}/externalcompanies")
+	public ResponseEntity<List<ExternalCompany>> getExternalCompaniesByCompanyId(@PathVariable("companyid") Long companyid) throws ResourceNotFoundException, ResourceExistsException {
+		List<ExternalCompany> savedExternalCompanies = companyService.getExternalCompaniesByCompanyId(companyid);
+		return new ResponseEntity<List<ExternalCompany>>(savedExternalCompanies, HttpStatus.CREATED);
+	}
 	
 	@PostMapping("/{companyid}/users")
 	public ResponseEntity<CompanyUserMapping> createUser(@RequestBody CompanyUserMapping companyUserMapping,@PathVariable("companyid") Long companyid) throws ResourceNotFoundException, ResourceExistsException {

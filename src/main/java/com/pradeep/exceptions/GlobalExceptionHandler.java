@@ -13,27 +13,33 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	
-	
 	@ExceptionHandler(UserAssociatedToCompanyException.class)
 	public ResponseEntity<?> emailDomainMismatchException(UserAssociatedToCompanyException ex, WebRequest request) {
-		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(), request.getDescription(false),"DBLayer");
+		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(),request.getDescription(false),"DBLayer");
 		return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<?> resourceNotFoundException(ResourceNotFoundException ex,  WebRequest request) {
-		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(), request.getDescription(false),"DBLayer");
+		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(),request.getDescription(false),"DBLayer");
 		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(ResourceExistsException.class)
-	public ResponseEntity<?> resouceExistsException(ResourceExistsException ex,  WebRequest request) {
-		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(), request.getDescription(false),"DBLayer");		return new ResponseEntity<>(errorDetails, HttpStatus.CONFLICT);
+	public ResponseEntity<?> resouceExistsException(ResourceExistsException ex,WebRequest request) {
+		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(),request.getDescription(false),"DBLayer");		
+		return new ResponseEntity<>(errorDetails, HttpStatus.CONFLICT);
+	}
+	
+	@ExceptionHandler(UserVerificationException.class)
+	public ResponseEntity<?> userVerificationException(UserVerificationException ex,  WebRequest request) {
+		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(),request.getDescription(false),"DBLayer");		
+		return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<?> globleExcpetionHandler(Exception ex, WebRequest request) {
-		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(), request.getDescription(false),"DBLayer");
+		ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(),request.getDescription(false),"DBLayer");
 		return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }

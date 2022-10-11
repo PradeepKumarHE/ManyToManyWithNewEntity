@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"company\": {\n        \"companyName\": \"Friends Group Services\",\n        \"companyDescription\": \"A company anybody can trust\",\n        \"companyWebsite\": \"www.fs.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,      \n        \"companyLogo\":\"Will update shortly\",\n        \"createdBy\":0,\n        \"companyaddress\": [\n            {\n                \"street\": \"New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 316986,\n                \"phoneExtension\": 123,\n                \"createdBy\":0\n            }\n        ]\n    },\n    \"user\": {\n        \"firstName\": \"Pradeep\",\n        \"lastName\": \"Kumar\",\n        \"email\": \"pradeep@fs.com\",\n        \"createdBy\":0,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\":0\n        }\n    },    \n    \"createdBy\":0\n    \n}",
+					"raw": "{\n    \"company\": {\n        \"companyName\": \"Friends Group Services\",\n        \"companyDescription\": \"A company anybody can trust\",\n        \"companyWebsite\": \"www.fs.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,      \n        \"companyLogo\":\"Will update shortly\",\n        \"createdBy\":0,\n        \"companyaddress\": [\n            {\n                \"street\": \"New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 316986,\n                \"phoneExtension\": 123,\n                \"createdBy\":0\n            }\n        ]\n    },\n    \"user\": {\n        \"firstName\": \"Nagendra\",\n        \"lastName\": \"Chikanna\",\n        \"email\": \"nagendra@fs.com\",\n        \"createdBy\":0,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\":0\n        }\n    },    \n    \"createdBy\":0\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"company\": {\n        \"companyName\": \"TCS\",        \n        \"companyWebsite\": \"www.tcs.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,      \n        \"createdBy\":0,\n        \"companyaddress\": [\n            {\n                \"street\": \"New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 316986,\n                \"phoneExtension\": 123,\n                \"createdBy\":0\n            }\n        ]\n    },\n    \"user\": {\n        \"firstName\": \"Vanditha\",\n        \"lastName\": \"Gowda\",\n        \"email\": \"vanditha@tcs.com\",\n        \"createdBy\":0,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\":0\n        }\n    },  \n    \"createdBy\":0    \n}",
+					"raw": "{\n    \"company\": {\n        \"companyName\": \"Gmail\",        \n        \"companyWebsite\": \"www.gmail.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,      \n        \"createdBy\":0,\n        \"companyaddress\": [\n            {\n                \"street\": \"New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 316986,\n                \"phoneExtension\": 123,\n                \"createdBy\":0\n            }\n        ]\n    },\n    \"user\": {\n        \"firstName\": \"Pradeep\",\n        \"lastName\": \"Kumar\",\n        \"email\": \"pradeepkumarhe1989@gmail.com\",\n        \"createdBy\":0,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\":0\n        }\n    },  \n    \"createdBy\":0    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -116,13 +116,13 @@
 			"response": []
 		},
 		{
-			"name": "Update Potential Company",
+			"name": "Update Potential Company :: GMAIL",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"company\": {\n        \"companyId\": 2,\n        \"companyName\": \"TCS\",\n        \"companyDescription\": \"Good Software company\",\n        \"companyWebsite\": \"www.tcs.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,\n        \"companyStatus\": 1,\n        \"companyaddress\": [\n            {\n                \"street\": \"Updated New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 987654,\n                \"phoneExtension\": 566\n            }\n        ]\n    },\n    \"user\": {\n        \"userId\": 2,\n        \"firstName\": \"Vanditha\",\n        \"lastName\": \"Gowda\",\n        \"email\": \"vanditha@tcs.com\",\n        \"encryptedEmail\": \"c03d886ce80d20e7d27c0f913600a61553d800883becfb48b530cc495cb5d053\",\n        \"username\": \"vandithatcscom\",\n        \"password\": null,\n        \"userStatus\": \"REFU\",\n        \"guid\": null,\n        \"isNotlocked\": true,\n        \"lastLogin\": null,\n        \"profilePic\": null,\n        \"useraddress\": {\n            \"phoneCountryId\": 1,\n            \"phone\": 8722922982,\n            \"landPhoneCountryId\": 1,\n            \"landPhone\": 316986,\n            \"landPhoneExtension\": 123\n        }\n    }\n}",
+					"raw": "{\n    \"company\": {\n        \"companyId\": 2,\n        \"companyName\": \"Gmail\",\n        \"companyDescription\": \"Famous Software company\",\n        \"companyWebsite\": \"www.gmail.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,\n        \"companyStatus\": 1,\n        \"companyaddress\": [\n            {\n                \"street\": \"Updated New Street\",\n                \"countryId\": 1,\n                \"stateId\": 1,\n                \"cityId\": 1,\n                \"zipCode\": 1234,\n                \"phoneCountryId\": 1,\n                \"phone\": 987654,\n                \"phoneExtension\": 566\n            }\n        ]\n    },\n    \"user\": {\n        \"userId\": 2,\n        \"firstName\": \"Pradeep\",\n        \"lastName\": \"Kumar\",\n        \"email\": \"pradeepkumarhe1989@gmail.com\",       \n        \"useraddress\": {\n            \"phoneCountryId\": 1,\n            \"phone\": 8722922982,\n            \"landPhoneCountryId\": 1,\n            \"landPhone\": 316986,\n            \"landPhoneExtension\": 123\n        }\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -147,13 +147,44 @@
 			"response": []
 		},
 		{
+			"name": "Update Potential Company :: Infosys",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company\": {\n        \"companyId\": 3,\n        \"companyName\": \"Infosys\",\n        \"companyDescription\": \"Leading software company\",\n        \"companyWebsite\": \"www.infosys.com\",\n        \"companyTypeID\": 8,\n        \"numberOfEmployeesID\": 8,\n        \"companyStatus\": 1,\n        \"companyaddress\": [\n            {\n                \"street\": \"Infosys New Street\",\n                \"countryId\": 4,\n                \"stateId\": 4,\n                \"cityId\": 4,\n                \"zipCode\": 3245,\n                \"phoneCountryId\": 1,\n                \"phone\": 987654,\n                \"phoneExtension\": 566\n            }\n        ]\n    },\n    \"user\": {\n        \"userId\": 3,\n        \"firstName\": \"Arun\",\n        \"lastName\": \"Kumar\",\n        \"email\": \"arun@infosys.com\",       \n        \"useraddress\": {\n            \"phoneCountryId\": 3,\n            \"phone\": 9742671554,\n            \"landPhoneCountryId\": 3,\n            \"landPhone\": 908033,\n            \"landPhoneExtension\": 222\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/companyusermapping/3/potential",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companyusermapping",
+						"3",
+						"potential"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Invite User",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"inviteeUserId\":2,\n\t\"inviterUserId\":1\n}",
+					"raw": "{\n    \"invitee\":\"f9cc1ae02a4397af02352a39467a5ef339ec1639dc9acdb46ff55e89e453dba8\",\n\t\"inviter\":\"3dcecc8eadab14b3e5aa328d916053345cc5116f9f723da1a1b3ce5813f44683\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -179,10 +210,19 @@
 		{
 			"name": "Verify Registration Invite",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tinystring\": 185625\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/api/users/register-invite-status/302524",
+					"raw": "http://localhost:8080/api/users/register-invite-status/f9cc1ae02a4397af02352a39467a5ef339ec1639dc9acdb46ff55e89e453dba8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -192,7 +232,316 @@
 						"api",
 						"users",
 						"register-invite-status",
-						"302524"
+						"f9cc1ae02a4397af02352a39467a5ef339ec1639dc9acdb46ff55e89e453dba8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Mobile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"\",\n    \"lastname\": \"\",\n    \"phoneCountryId\": 1,\n    \"phone\": 9964289813,\n    \"tinystring\": 446589\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/mobile/f9cc1ae02a4397af02352a39467a5ef339ec1639dc9acdb46ff55e89e453dba8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"mobile",
+						"f9cc1ae02a4397af02352a39467a5ef339ec1639dc9acdb46ff55e89e453dba8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify OTP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tinystring\": 631125\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/otp/f9cc1ae02a4397af02352a39467a5ef339ec1639dc9acdb46ff55e89e453dba8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"otp",
+						"f9cc1ae02a4397af02352a39467a5ef339ec1639dc9acdb46ff55e89e453dba8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resend OTP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 2,\n    \"phoneCountryId\": 1,\n    \"phone\": 9964289813,\n    \"verificationCode\": 486474,\n    \"isRegsitrationFlow\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/mobile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":2,\n\t\"companyId\":2,\n\t\"password\":\"Test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User :: GMAIL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {        \n        \"email\": \"smithagowdaoutlook@gmail.com\",\n        \"createdBy\": 2,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\": 2\n        }\n    },\n    \"designation\":\"EMPLOYEE\",\n    \"role\":\"INETRNAL_EMPLOYEE\",\n     \"authorities\": [\n        \"read\"\n    ],\n    \"isExternal\":false,\n    \"worklocaction\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"lastModifiedDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"createdBy\": 0,\n        \"modifiedBy\": null,\n        \"addressId\": 2,\n        \"street\": \"New Street\",\n        \"countryId\": 1,\n        \"stateId\": 1,\n        \"cityId\": 1,\n        \"zipCode\": 1234,\n        \"phoneCountryId\": 1,\n        \"phone\": 316986,\n        \"phoneExtension\": 123\n    },\n    \"createdBy\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/company/2/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company",
+						"2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User :: Infosys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {       \n        \"email\": \"namratha@infosys.com\",\n        \"createdBy\": 3,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\": 3\n        }\n    },\n    \"designation\":\"EMPLOYEE\",\n    \"role\":\"INETRNAL_EMPLOYEE\",\n     \"authorities\": [\n        \"read\"\n    ],\n    \"isExternal\":false,\n    \"worklocaction\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"lastModifiedDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"createdBy\": 0,\n        \"modifiedBy\": null,\n        \"addressId\": 3,\n        \"street\": \"New Street\",\n        \"countryId\": 1,\n        \"stateId\": 1,\n        \"cityId\": 1,\n        \"zipCode\": 1234,\n        \"phoneCountryId\": 1,\n        \"phone\": 316986,\n        \"phoneExtension\": 123\n    },\n    \"createdBy\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/company/3/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company",
+						"3",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create external company :: Gmail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyName\": \"Infosys\",\n    \"companyDescription\": \"My First External company\",\n    \"companyWebsite\": \"www.infosys.com\",\n    \"companyTypeID\": 1,\n    \"numberOfEmployeesID\": 1,\n    \"companyLogo\": \"will update soon\",\n    \"externalcompanyaddresses\": [\n        {\n            \"street\": \"External company Street\",\n            \"countryId\": 5,\n            \"stateId\": 5,\n            \"cityId\": 5,\n            \"zipCode\": 2232,\n            \"phoneCountryId\": 5,\n            \"phone\": 316986,\n            \"phoneExtension\": 123,\n            \"createdBy\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/company/2/externalcompanies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company",
+						"2",
+						"externalcompanies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create external Employee :: Gmail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"email\": \"sanjay@tcs.com\",\n        \"createdBy\": 2\n    },\n    \"designation\": \"EMPLOYEE\",\n    \"role\": \"EXTERNAL_EMPLOYEE\",\n    \"authorities\": [\n        \"read\"\n    ],\n    \"isExternal\": true,\n    \"externalCompany\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-11T14:10:02.695+00:00\",\n        \"lastModifiedDate\": \"2022-10-11T14:10:02.695+00:00\",\n        \"createdBy\": null,\n        \"modifiedBy\": null,\n        \"externalCompanyId\": 1,\n        \"companyName\": \"Infosys\",\n        \"companyDescription\": \"My First External company\",\n        \"companyWebsite\": \"www.infosys.com\",\n        \"companyTypeID\": 1,\n        \"numberOfEmployeesID\": 1,\n        \"companyLogo\": \"will update soon\",\n        \"active\": true\n    },\n    \"externalCompanyAddress\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-11T14:10:02.699+00:00\",\n        \"lastModifiedDate\": \"2022-10-11T14:10:02.699+00:00\",\n        \"createdBy\": 2,\n        \"modifiedBy\": null,\n        \"externalCompanyAddressId\": 1,\n        \"street\": \"External company Street\",\n        \"countryId\": 5,\n        \"stateId\": 5,\n        \"cityId\": 5,\n        \"zipCode\": 2232,\n        \"phoneCountryId\": 5,\n        \"phone\": 316986,\n        \"phoneExtension\": 123\n    },\n    \"createdBy\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/company/2/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company",
+						"2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Company Info By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/company/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get External Companies By Parent Company Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/company/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"company",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get External Company By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/externalcompanies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"externalcompanies",
+						"1"
 					]
 				}
 			},

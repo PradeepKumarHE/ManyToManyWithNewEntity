@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
+import com.pradeep.enums.UserVerificationContexts;
 import com.vladmihalcea.hibernate.type.json.JsonType;
 
 import lombok.Getter;
@@ -26,9 +27,9 @@ public class UserConformation  extends CustomAudit{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userConformationId;
-	private Long userId;
-	private String tinyLink;
-	private String verificationContext;
+	private String encryptedEmail;
+	private String tinyString;
+	private UserVerificationContexts verificationContext;
 	private LocalDateTime linkCreationDateTime;
 	@Type(type = "json")
 	@Column(columnDefinition = "json")

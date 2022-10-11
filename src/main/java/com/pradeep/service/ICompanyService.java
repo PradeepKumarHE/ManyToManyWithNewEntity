@@ -30,8 +30,5 @@ public interface ICompanyService {
 	CompanyUserMapping updateCompany(Long companyUserMappingId, CompanyUserMapping companyusermapping) throws ResourceExistsException, ResourceNotFoundException;
 
 
-	
-
-	
-	
+	List<ExternalCompany> getExternalCompaniesByCompanyId(Long companyid);
 }

@@ -4,12 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class UserAssociatedToCompanyException extends Exception{
+public class UserVerificationException extends Exception {
+	private static final long serialVersionUID = 1L;
 
-	private static final long serialVersionUID = -1628332750546948830L;
-
-	public UserAssociatedToCompanyException(String message) {
+	public UserVerificationException(String message) {
 		super(message);
 	}
-}
 
+}

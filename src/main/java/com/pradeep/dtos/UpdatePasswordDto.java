@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class VerificationDto {
+public class UpdatePasswordDto {
 	private Long userId;
-	private String verificationContext;
+	private Long companyId;
+	private String password;
 }

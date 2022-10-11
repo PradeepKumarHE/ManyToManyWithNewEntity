@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -37,15 +38,15 @@ public class CompanyUserMapping extends CustomAudit{
     private Boolean isExternal;
     private Boolean isActive=false;
     
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @OneToOne
     @JoinColumn(name = "worklocation_id") 
 	private CompanyAddress worklocaction;
     
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @OneToOne
     @JoinColumn(name = "external_company_id") 
 	private ExternalCompany externalCompany;
     
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @OneToOne
     @JoinColumn(name = "external_company_address_id") 
 	private ExternalCompanyAddress externalCompanyAddress;
 }

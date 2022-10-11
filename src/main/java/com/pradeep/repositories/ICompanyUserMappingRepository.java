@@ -26,4 +26,7 @@ public interface ICompanyUserMappingRepository extends JpaRepository <CompanyUse
 	
 	@Query("SELECT cum FROM CompanyUserMapping cum WHERE cum.user.userId=:userId")
    	List<CompanyUserMapping> getUserMappingByUserId(@Param("userId") Long userId);
+
+	@Query("SELECT cum FROM CompanyUserMapping cum WHERE cum.company.companyId=:companyId AND cum.user.userId=:userId")
+	Optional<CompanyUserMapping> findByCompanyIdAndUserId(@Param("companyId") Long companyId, @Param("userId") Long userId);
 }
