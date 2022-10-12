@@ -1,9 +1,9 @@
 package com.pradeep.service;
 
-import com.pradeep.domain.ExternalCompany;
 import com.pradeep.domain.User;
 import com.pradeep.dtos.UpdateMobileDto;
 import com.pradeep.dtos.UpdatePasswordDto;
+import com.pradeep.dtos.UserAssociatedCompanyDto;
 import com.pradeep.dtos.UserInvitationDto;
 import com.pradeep.enums.UserVerificationContexts;
 import com.pradeep.exceptions.ResourceNotFoundException;
@@ -11,11 +11,13 @@ import com.pradeep.exceptions.UserVerificationException;
 import com.pradeep.responses.Response1;
 import com.pradeep.responses.Response2;
 
+import java.util.List;
+
 public interface IUserService {
 
-	User getUserinfoById(Long userid);
+	User getUserinfoById(Long userid) throws ResourceNotFoundException;
 
-	ExternalCompany getUserAssociatedCompaniesById(Long userid);
+	List<UserAssociatedCompanyDto> getUserAssociatedCompaniesById(Long userid);
 
 	Response1 inviteUserById(UserInvitationDto userInvitationDto) throws ResourceNotFoundException;
 

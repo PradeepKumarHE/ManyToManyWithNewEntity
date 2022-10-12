@@ -3,21 +3,20 @@ package com.pradeep.service;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.pradeep.dtos.*;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.pradeep.domain.CompanyUserMapping;
-import com.pradeep.domain.ExternalCompany;
 import com.pradeep.domain.User;
 import com.pradeep.domain.UserConformation;
-import com.pradeep.dtos.Emaildto;
-import com.pradeep.dtos.UpdateMobileDto;
-import com.pradeep.dtos.UpdatePasswordDto;
-import com.pradeep.dtos.UserInvitationDto;
 import com.pradeep.enums.UserVerificationContexts;
 import com.pradeep.exceptions.ResourceNotFoundException;
 import com.pradeep.exceptions.UserVerificationException;
@@ -43,19 +42,33 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private ICompanyUserMappingRepository companyUserMappingRepository;
 
+	@Autowired
+	private ModelMapper modelMapper;
+
 	@Override
-	public User getUserinfoById(Long userid) {
-		return null;
+	public User getUserinfoById(Long userid) throws ResourceNotFoundException {
+		User user = userRepository.findById(userid).orElseThrow(() -> new ResourceNotFoundException("User not found :: " + userid));
+		return user;
 	}
 
 	@Override
-	public ExternalCompany getUserAssociatedCompaniesById(Long userid) {
-		return null;
+	public List<UserAssociatedCompanyDto> getUserAssociatedCompaniesById(Long userid) {
+		List<CompanyUserMapping> mappingList=companyUserMappingRepository.findByUser_UserIdAndIsActive(userid,true);
+		List<UserAssociatedCompanyDto> newList = mappingList.stream()
+				.map(f -> new UserAssociatedCompanyDto(f.getCompany().getCompanyId(),
+						f.getCompany().getCompanyName(),f.getDesignation(),f.getRole(),
+						f.getAuthorities(),f.getIsExternal()))
+				.collect(Collectors.toList());
+		return newList;
 	}
 
 	public Response1 inviteUserById(UserInvitationDto userInvitationDto) throws ResourceNotFoundException {
 		User inviteeUser = userRepository.findByEncryptedEmail(userInvitationDto.getInvitee()).orElseThrow(() -> new ResourceNotFoundException("Invitee User not found :: " + userInvitationDto.getInvitee()));
 		User inviterUser = userRepository.findByEncryptedEmail(userInvitationDto.getInviter()).orElseThrow(() -> new ResourceNotFoundException("Inviter User not found :: " + userInvitationDto.getInviter()));
+		boolean result=companyUserMappingRepository.findByUserIdAndIsActive(inviteeUser.getUserId(),true);
+		if(result){
+			return new Response1(HttpStatus.OK.value(),"Sent association email successfully");
+		}
 		String tinyString=ConversionUtil.encodeUrl();
 		Map<String, Object> details = new HashMap<>();
 		details.put("phonecountrycodeid", inviteeUser.getUseraddress().getPhoneCountryId());
@@ -123,10 +136,13 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public Response1 updatePassword(UpdatePasswordDto updatePasswordDto) throws ResourceNotFoundException {
 		User user = userRepository.findById(updatePasswordDto.getUserId()).orElseThrow(() -> new ResourceNotFoundException("User not found :: " + updatePasswordDto.getUserId()));
+		Optional<CompanyUserMapping> optionalCompanyUserMapping=companyUserMappingRepository.findByCompanyIdAndUserId(updatePasswordDto.getCompanyId(),updatePasswordDto.getUserId());
+		if(optionalCompanyUserMapping.isEmpty()){
+			throw new ResourceNotFoundException("User not found");
+		}
 		user.setPassword("DEFAULT");
 		user.setUserStatus("ACTIVE");
 		userRepository.save(user);
-		Optional<CompanyUserMapping> optionalCompanyUserMapping=companyUserMappingRepository.findByCompanyIdAndUserId(updatePasswordDto.getCompanyId(),updatePasswordDto.getUserId());
 		CompanyUserMapping companyUserMapping=optionalCompanyUserMapping.get();
 		companyUserMapping.setIsActive(true);
 		companyUserMappingRepository.save(companyUserMapping);
@@ -162,6 +178,7 @@ public class UserServiceImpl implements IUserService {
 	        emaildto.setTemplateValues(email_process_values);
 	        notificationResources.sendEmail(emaildto);
 	}
+
 	private void addUpdatedUserConformationData(String encryptedEmail,UserVerificationContexts verificationContext,String tinyString,Map<String, Object> details) {
 		Optional<UserConformation> optionalUserConformation=userConformationRepository.findByEncryptedEmailAndVerificationContext(encryptedEmail, verificationContext);
 		if(optionalUserConformation.isEmpty()) {

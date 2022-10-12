@@ -18,15 +18,20 @@ public interface ICompanyUserMappingRepository extends JpaRepository <CompanyUse
 
 	Optional<CompanyUserMapping> findByCompanyAndUser(Company company, User user);
 
-	@Query("SELECT cum,c FROM CompanyUserMapping cum JOIN cum.company c JOIN cum.user u WHERE cum.company.companyStatus=:companyStatus")
+	@Query("select cum,c from CompanyUserMapping cum join cum.company c JOIN cum.user u where cum.company.companyStatus=:companyStatus")
 	List<CompanyUserMapping> getCompanyListByCompanyStatus(@Param("companyStatus") Integer companystatus);
 	
-	@Query("SELECT cum FROM CompanyUserMapping cum JOIN cum.company c JOIN cum.user u WHERE cum.company.companyId=:companyId")
+	@Query("select cum from CompanyUserMapping cum join cum.company c JOIN cum.user u where cum.company.companyId=:companyId")
    	List<CompanyUserMapping> getUserMappingByCompanyId(@Param("companyId") Long companyId);
 	
-	@Query("SELECT cum FROM CompanyUserMapping cum WHERE cum.user.userId=:userId")
+	@Query("select cum from CompanyUserMapping cum where cum.user.userId=:userId")
    	List<CompanyUserMapping> getUserMappingByUserId(@Param("userId") Long userId);
 
-	@Query("SELECT cum FROM CompanyUserMapping cum WHERE cum.company.companyId=:companyId AND cum.user.userId=:userId")
+	@Query("select cum from CompanyUserMapping cum where cum.company.companyId=:companyId and cum.user.userId=:userId")
 	Optional<CompanyUserMapping> findByCompanyIdAndUserId(@Param("companyId") Long companyId, @Param("userId") Long userId);
+
+	@Query("select (count(c) > 0) from CompanyUserMapping c where c.user.userId=:userId and c.isActive=:isActive")
+	boolean findByUserIdAndIsActive(@Param("userId") Long userId,@Param("isActive") Boolean isActive);
+
+	List<CompanyUserMapping> findByUser_UserIdAndIsActive(Long userId, Boolean isActive);
 }

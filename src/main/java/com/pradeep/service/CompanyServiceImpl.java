@@ -198,7 +198,7 @@ public class CompanyServiceImpl implements ICompanyService {
 			companyusermapping.setIsActive(false);
 		}
 		companyusermapping.setIsExternal(false);
-		companyusermapping.setWorklocaction(savedCompany.getCompanyaddress().get(0));
+		companyusermapping.setWorklocation(savedCompany.getCompanyaddress().get(0));
 		return companyusermapping;
 	}
 

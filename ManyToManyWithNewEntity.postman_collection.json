@@ -245,7 +245,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstname\": \"\",\n    \"lastname\": \"\",\n    \"phoneCountryId\": 1,\n    \"phone\": 9964289813,\n    \"tinystring\": 446589\n}",
+					"raw": "{\n    \"firstname\": \"Pradeep\",\n    \"lastname\": \"Kumar\",\n    \"phoneCountryId\": 1,\n    \"phone\": 9964289813,\n    \"tinystring\": 446589\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -367,7 +367,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": {        \n        \"email\": \"smithagowdaoutlook@gmail.com\",\n        \"createdBy\": 2,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\": 2\n        }\n    },\n    \"designation\":\"EMPLOYEE\",\n    \"role\":\"INETRNAL_EMPLOYEE\",\n     \"authorities\": [\n        \"read\"\n    ],\n    \"isExternal\":false,\n    \"worklocaction\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"lastModifiedDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"createdBy\": 0,\n        \"modifiedBy\": null,\n        \"addressId\": 2,\n        \"street\": \"New Street\",\n        \"countryId\": 1,\n        \"stateId\": 1,\n        \"cityId\": 1,\n        \"zipCode\": 1234,\n        \"phoneCountryId\": 1,\n        \"phone\": 316986,\n        \"phoneExtension\": 123\n    },\n    \"createdBy\": 2\n}",
+					"raw": "{\n    \"user\": {        \n        \"email\": \"smithagowdaoutlook@gmail.com\",\n        \"createdBy\": 2,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\": 2\n        }\n    },\n    \"designation\":\"EMPLOYEE\",\n    \"role\":\"INETRNAL_EMPLOYEE\",\n     \"authorities\": [\n        \"read\"\n    ],\n    \"isExternal\":false,\n    \"worklocation\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"lastModifiedDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"createdBy\": 0,\n        \"modifiedBy\": null,\n        \"addressId\": 2,\n        \"street\": \"New Street\",\n        \"countryId\": 1,\n        \"stateId\": 1,\n        \"cityId\": 1,\n        \"zipCode\": 1234,\n        \"phoneCountryId\": 1,\n        \"phone\": 316986,\n        \"phoneExtension\": 123\n    },\n    \"createdBy\": 2\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -398,7 +398,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": {       \n        \"email\": \"namratha@infosys.com\",\n        \"createdBy\": 3,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\": 3\n        }\n    },\n    \"designation\":\"EMPLOYEE\",\n    \"role\":\"INETRNAL_EMPLOYEE\",\n     \"authorities\": [\n        \"read\"\n    ],\n    \"isExternal\":false,\n    \"worklocaction\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"lastModifiedDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"createdBy\": 0,\n        \"modifiedBy\": null,\n        \"addressId\": 3,\n        \"street\": \"New Street\",\n        \"countryId\": 1,\n        \"stateId\": 1,\n        \"cityId\": 1,\n        \"zipCode\": 1234,\n        \"phoneCountryId\": 1,\n        \"phone\": 316986,\n        \"phoneExtension\": 123\n    },\n    \"createdBy\": 3\n}",
+					"raw": "{\n    \"user\": {       \n        \"email\": \"namratha@infosys.com\",\n        \"createdBy\": 3,\n        \"useraddress\": {\n            \"street\": \"New Street\",\n            \"countryId\": 1,\n            \"stateId\": 1,\n            \"cityId\": 1,\n            \"zipCode\": 1234,\n            \"phoneCountryId\": 1,\n            \"phone\": 9964289813,\n            \"createdBy\": 3\n        }\n    },\n    \"designation\":\"EMPLOYEE\",\n    \"role\":\"INETRNAL_EMPLOYEE\",\n     \"authorities\": [\n        \"read\"\n    ],\n    \"isExternal\":false,\n    \"worklocation\": {\n        \"version\": 0,\n        \"createdDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"lastModifiedDate\": \"2022-10-07T05:00:11.488+00:00\",\n        \"createdBy\": 0,\n        \"modifiedBy\": null,\n        \"addressId\": 3,\n        \"street\": \"New Street\",\n        \"countryId\": 1,\n        \"stateId\": 1,\n        \"cityId\": 1,\n        \"zipCode\": 1234,\n        \"phoneCountryId\": 1,\n        \"phone\": 316986,\n        \"phoneExtension\": 123\n    },\n    \"createdBy\": 3\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -542,6 +542,28 @@
 						"api",
 						"externalcompanies",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Associated Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/2/associatedcompanies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"2",
+						"associatedcompanies"
 					]
 				}
 			},

@@ -40,7 +40,7 @@ public class CompanyUserMapping extends CustomAudit{
     
     @OneToOne
     @JoinColumn(name = "worklocation_id") 
-	private CompanyAddress worklocaction;
+	private CompanyAddress worklocation;
     
     @OneToOne
     @JoinColumn(name = "external_company_id") 

@@ -1,5 +1,6 @@
 package com.pradeep.controllers;
 
+import com.pradeep.dtos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pradeep.domain.ExternalCompany;
 import com.pradeep.domain.User;
-import com.pradeep.dtos.UpdateMobileDto;
-import com.pradeep.dtos.UpdatePasswordDto;
-import com.pradeep.dtos.UserInvitationDto;
-import com.pradeep.dtos.ValidateUserDto;
 import com.pradeep.enums.UserVerificationContexts;
 import com.pradeep.exceptions.ResourceNotFoundException;
 import com.pradeep.exceptions.UserVerificationException;
 import com.pradeep.responses.Response1;
 import com.pradeep.responses.Response2;
 import com.pradeep.service.IUserService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -38,9 +37,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/{userid}/associatedcompanies")
-	public ResponseEntity<ExternalCompany> getUserAssociatedCompaniesById(@PathVariable("userid") Long userid) throws ResourceNotFoundException {
-		ExternalCompany savedCompanyUserMapping = userService.getUserAssociatedCompaniesById(userid);
-		return new ResponseEntity<ExternalCompany>(savedCompanyUserMapping, HttpStatus.OK);
+	public ResponseEntity<List<UserAssociatedCompanyDto>> getUserAssociatedCompaniesById(@PathVariable("userid") Long userid) throws ResourceNotFoundException {
+		List<UserAssociatedCompanyDto> userAssociatedCompanyDto = userService.getUserAssociatedCompaniesById(userid);
+		return new ResponseEntity<List<UserAssociatedCompanyDto>>(userAssociatedCompanyDto, HttpStatus.OK);
 	}
 	
 	@PostMapping("/invite")
